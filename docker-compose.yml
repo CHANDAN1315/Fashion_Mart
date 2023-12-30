@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "3000:3000"
+    container_name: web-container
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command: npm run dev

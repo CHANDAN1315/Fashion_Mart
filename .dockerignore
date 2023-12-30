@@ -1,0 +1,18 @@
+# Ignore node_modules directory
+node_modules
+
+# Ignore development files
+.next
+out
+
+# Ignore build artifacts and temporary files
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+
+# Ignore cached files
+.cache
+.next
