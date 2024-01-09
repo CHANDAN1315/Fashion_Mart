@@ -1,4 +1,5 @@
 // Imports
+import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto, Rufina } from "next/font/google";
@@ -30,7 +31,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${rufina.variable} ${roboto.variable}`}>
-      <body>{children}</body>
+      <body className="max-w-[1440px] mx-auto">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
