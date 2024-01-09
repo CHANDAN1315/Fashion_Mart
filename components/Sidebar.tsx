@@ -5,7 +5,7 @@ const Sidebar = () => {
     <div>
       <div className="flex space-x-4 items-center p-2    ">
         <Image
-          src="/assets/assets/icons/svg/black/ic_black_home.svg"
+          src="/assets/icons/svg/black/ic_black_home.svg"
           alt="home"
           width={24}
           height={24}

@@ -39,7 +39,7 @@ module.exports = {
          */
         primary: {
           lighter: colors.gray[200],
-          DEFAULT: colors.gray[800],
+          default: colors.gray[800],
           dark: colors.gray[950],
           foreground: colors.white,
         },
@@ -49,7 +49,7 @@ module.exports = {
          */
         secondary: {
           lighter: colors.indigo[200],
-          DEFAULT: colors.indigo[500],
+          default: colors.indigo[500],
           dark: colors.indigo[700],
           foreground: colors.white,
         },
@@ -59,7 +59,7 @@ module.exports = {
          */
         red: {
           lighter: colors.rose[200],
-          DEFAULT: colors.rose[500],
+          default: colors.rose[500],
           dark: colors.rose[700],
         },
 
@@ -68,7 +68,7 @@ module.exports = {
          */
         orange: {
           lighter: colors.amber[200],
-          DEFAULT: colors.amber[500],
+          default: colors.amber[500],
           dark: colors.amber[700],
         },
 
@@ -77,7 +77,7 @@ module.exports = {
          */
         blue: {
           lighter: colors.sky[200],
-          DEFAULT: colors.sky[500],
+          default: colors.sky[500],
           dark: colors.sky[700],
         },
 
@@ -86,7 +86,7 @@ module.exports = {
          */
         green: {
           lighter: colors.emerald[200],
-          DEFAULT: colors.emerald[500],
+          default: colors.emerald[500],
           dark: colors.emerald[700],
         },
       },
