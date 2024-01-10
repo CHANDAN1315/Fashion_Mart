@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Navbar = () => {
   return (
-    <section className=" flex justify-between border-b-gray-600 border ">
+    <section className=" flex justify-between border-muted border-y-2 border-l-2">
       <Image
         src="/assets/logo/logo.png"
         alt="logo"
@@ -13,7 +13,7 @@ const Navbar = () => {
         className="m-4"
       />
       <div className="flex space-x-4 mr-4">
-        <div className="flex justify-center bg-gray-200 rounded-full m-2 px-2 ">
+        <div className="flex justify-center bg-muted rounded-full m-2 px-2 ">
           <Image
             src="/assets/icons/svg/black/ic_black_bell.svg"
             alt="notificaiton"
@@ -21,7 +21,7 @@ const Navbar = () => {
             height={25}
           />
         </div>
-        <div className="flex justify-center bg-gray-200 rounded-full m-2 px-2 ">
+        <div className="flex justify-center bg-muted rounded-full m-2 px-2 ">
           <Image
             src="/assets/icons/svg/black/ic_black_gear.svg"
             alt="gear"

@@ -1,10 +1,9 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Button, Input } from "rizzui";
+import { Checkbox, Avatar, Text , Dropdown, Button, Input } from "rizzui";
 import Table from "@/components/Table";
 import HeaderCell from "@/components/TableHeader";
-import { Checkbox, Avatar, Text, Badge } from "rizzui";
 import { products } from "@/data/products";
 import {
   MagnifyingGlassIcon,
@@ -13,32 +12,38 @@ import {
   PlusIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import PaginationComponent from "@/components/PaginationComponent";
+import DropdownComponent from "@/components/DropdownComponent";
 
-const page = () => {
+const Products = () => {
   const [order, setOrder] = useState<string>("desc");
   const [column, setColumn] = useState<string>("");
   const [data, setData] = useState<typeof products>(products);
+
+  const dataLength = 50;
+  const currentPage = 1;
+  const optionData = [1,2,3,4,5]
 
   function getStatusBadge(status: string) {
     switch (status.toLowerCase()) {
       case "published":
         return (
-          <div className="flex items-center text-green-default font-medium">
-            <span className="relative bottom-1 font-bold text-2xl ">.</span>
+          <div className="flex items-center text-green-default gap-1 font-medium">
+            <div className="w-1 h-1 bg-green-default rounded-full"></div>
             {status}
           </div>
         );
       case "pending":
         return (
           <div className="flex items-center text-orange-default gap-1 font-medium">
-            <span className="relative bottom-1 font-bold text-2xl ">.</span>
+            <div className="w-1 h-1 bg-orange-default rounded-full"></div>
             {status}
           </div>
         );
       case "draft":
         return (
           <div className="flex items-center text-red-default gap-1 font-medium">
-            <span className="relative bottom-1 font-bold text-2xl ">.</span>
+            <div className="w-1 h-1 bg-red-default rounded-full"></div>
             {status}
           </div>
         );
@@ -69,10 +74,10 @@ const page = () => {
         <div className="flex items-center">
           <Avatar src={product.image} name={`image`} rounded="md" />
           <div className="ml-3 rtl:ml-0 rtl:mr-3">
-            <Text as="h6" className="mb-0.5 !text-sm font-medium">
+            <Text className="mb-0.5 !text-sm font-roboto font-bold">
               {product.title}
             </Text>
-            <Text as="p" className="text-xs text-gray-400">
+            <Text as="p" className="text-xs text-foreground">
               {product.category}
             </Text>
           </div>
@@ -84,12 +89,14 @@ const page = () => {
       dataIndex: "sku",
       key: "sku",
       width: 250,
+      render: (sku: string) => <div className="text-foreground">{sku}</div>,
     },
     {
       title: <HeaderCell title="Price" />,
       dataIndex: "price",
       key: "price",
       width: 250,
+      render: (price: string) => <div className="text-foreground">{price}</div>,
     },
     {
       title: <HeaderCell title="Stock" />,
@@ -100,7 +107,9 @@ const page = () => {
         if (active) {
           return <div className="text-green-default font-medium">In Stock</div>;
         } else {
-          return <div className="text-red-default font-medium">Out of Stock</div>;
+          return (
+            <div className="text-red-default font-medium">Out of Stock</div>
+          );
         }
       },
     },
@@ -115,7 +124,7 @@ const page = () => {
     {
       title: <HeaderCell title="Actions" />,
       render: () => (
-        <div className=" flex justify-center items-center py-3 bg-gray-200 rounded-full">
+        <div className=" flex justify-center items-center w-10 h-10 bg-gray-200 rounded-full">
           <Image
             src="/assets/icons/svg/black/ic_black_3_dots.svg"
             alt="three_dots"
@@ -138,12 +147,12 @@ const page = () => {
       <div className="text-black font-rufina font-bold text-[24px]">
         Products
       </div>
-      <div className="flex space-x-2 text-foreground">
-        <span>E-commerce</span>
-        <span className=" font-bold text-[20px]">.</span>
-        <span>Products</span>
+      <div className="flex items-center space-x-2 text-foreground">
+        <div>E-commerce</div>
+        <div className="w-1 h-1 bg-black rounded-full"></div>
+        <div>Products</div>
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-2">
         <Input
           prefix={<MagnifyingGlassIcon className="w-4" />}
           placeholder="Search"
@@ -172,7 +181,7 @@ const page = () => {
           <Button
             rounded="pill"
             color="primary"
-            className="bg-black text-white hover:bg-white hover:text-black space-x-2"
+            className="bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted"
           >
             <PlusIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
             <span>Add Product</span>
@@ -183,8 +192,17 @@ const page = () => {
       {/* Table section */}
 
       <Table data={data} columns={columns} className="text-sm  my-4" />
+
+      {/* Pagination */}
+      <div className="flex justify-between items-center">
+        <DropdownComponent title={"Rows Per Page"} optionData={optionData}/>
+        <PaginationComponent
+          dataLength={dataLength}
+          defaultCurrent={currentPage}
+        />
+      </div>
     </>
   );
 };
 
-export default page;
+export default Products;

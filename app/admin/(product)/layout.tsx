@@ -8,7 +8,7 @@ export default function ProductsLayout({
 }) {
   return (
     <main className="flex">
-      <section className="w-[20%] h-[100vh] max-md:w-[50%] bg-gray-200">
+      <section className="w-[20%] max-md:w-[50%] bg-white border-muted border-x-2">
         {/* Global sidebar */}
         <Sidebar />
       </section>

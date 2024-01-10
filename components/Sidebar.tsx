@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { sidebarData } from "@/data/sidebarData";
 const Sidebar = () => {
   return (
     <div>
@@ -12,30 +13,35 @@ const Sidebar = () => {
         />
         <span className="text-black font-roboto">Dashboard</span>
       </div>
-      {/* <div className="mt-10">
-            {sidebarData.map((item) => (
-               <div key={item.title}>
-                  <p className="text-gray-500 font-bold m-2 mt-8">
-                     {item.title}
-                  </p>
-                  {item.links.map((link) => link.dropdown ? (
-                     <div key={link.name} className="flex items-center m-3 justify-between text-gray-400 text-sm font-bold py-1">
-                        <div className="flex space-x-4" >
-                           <span className="flex mt-1">{link.icon}</span>
-                           <span>{link.name}</span>
-                        </div>
-                        <span >{link.dropdown}</span>
-                     </div>
-                  ) :
-                     (<div key={link.name} className="flex items-center m-3 space-x-4 text-gray-400 text-sm font-bold py-1">
-                        <span>{link.icon}</span>
-                        <span>{link.name}</span>
-                     </div>
-                     ))}
-               </div>
-
+      <div className="">
+        {sidebarData.map((item) => (
+          <div key={item.title}>
+            <div className="flex justify-between bg-black text-white py-2 px-3 my-2 ">
+              <div className="flex space-x-2">
+                <Image
+                  src={item.icon}
+                  alt="item_icon"
+                  width={24}
+                  height={24}
+                />
+                <span>{item.title}</span>
+              </div>
+              <Image
+                src={item.dropDown}
+                alt="dropdown_icon"
+                width={24}
+                height={24}
+              />
+            </div>
+            {item.links.map((link) => (
+              <div key={link} className="flex items-center space-x-2 ml-8 mt-1 text-foreground hover:cursor-pointer hover:text-black hover:font-medium">
+                <div className="w-1 h-1 bg-foreground rounded-full mx-2 my-3  "></div>
+                <div>{link}</div>
+              </div>
             ))}
-         </div> */}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

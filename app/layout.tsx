@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto, Rufina } from "next/font/google";
+import Footer from "@/components/Footer";
 
 // Google fonts configuration
 const rufina = Rufina({
@@ -31,9 +32,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${rufina.variable} ${roboto.variable}`}>
-      <body className="max-w-[1440px] mx-auto">
+      <body className="max-w-[1440px] mx-auto border-r-2 border-muted">
         <Navbar />
         {children}
+        <Footer/>
       </body>
     </html>
   );
