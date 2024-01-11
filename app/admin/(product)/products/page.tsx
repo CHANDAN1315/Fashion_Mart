@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Checkbox, Avatar, Text , Dropdown, Button, Input } from "rizzui";
+import { Checkbox, Avatar, Text, Dropdown, Button, Input } from "rizzui";
 import Table from "@/components/Table";
 import HeaderCell from "@/components/TableHeader";
 import { products } from "@/data/products";
@@ -22,7 +22,7 @@ const Products = () => {
 
   const dataLength = 50;
   const currentPage = 1;
-  const optionData = [1,2,3,4,5]
+  const optionData = [1, 2, 3, 4, 5];
 
   function getStatusBadge(status: string) {
     switch (status.toLowerCase()) {
@@ -191,11 +191,14 @@ const Products = () => {
 
       {/* Table section */}
 
-      <Table data={data} columns={columns} className="text-sm  my-4" />
+      <Table data={data} columns={columns} className="text-sm  my-4 " />
 
       {/* Pagination */}
       <div className="flex justify-between items-center">
-        <DropdownComponent title={"Rows Per Page"} optionData={optionData}/>
+        <div className="flex items-center font-roboto text-foreground space-x-2">
+          <div className="">{"Rows Per Page"}</div>
+          <DropdownComponent title={"5"} optionData={optionData} />
+        </div>
         <PaginationComponent
           dataLength={dataLength}
           defaultCurrent={currentPage}
