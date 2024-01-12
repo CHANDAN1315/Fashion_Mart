@@ -10,7 +10,7 @@ export default function App({ title, optionData }: any) {
           <ChevronDownIcon className="ml-2 w-5" />
         </Button>
       </Dropdown.Trigger>
-      <Dropdown.Menu>
+      <Dropdown.Menu className="w-16">
         {optionData?.map((data: string) => (
           <div key={data}>
             <Dropdown.Item>{data}</Dropdown.Item>

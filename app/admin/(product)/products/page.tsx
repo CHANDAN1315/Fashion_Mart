@@ -159,7 +159,7 @@ const Products = () => {
           rounded="pill"
         />
 
-        {/* Buttons sections */}
+        {/* Buttons section */}
 
         <div className="flex space-x-4">
           <Button
@@ -194,6 +194,7 @@ const Products = () => {
       <Table data={data} columns={columns} className="text-sm  my-4 " />
 
       {/* Pagination */}
+
       <div className="flex justify-between items-center">
         <div className="flex items-center font-roboto text-foreground space-x-2">
           <div className="">{"Rows Per Page"}</div>
