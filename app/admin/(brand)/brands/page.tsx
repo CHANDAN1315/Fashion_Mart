@@ -72,7 +72,7 @@ const Brands = () => {
       width: 250,
       render: (brand_image: string) => (
         <div className="flex items-center">
-          <Avatar src={brand_image} name={`brand_image`} rounded="md" color="primary"/>
+          <Avatar src={brand_image} name={`brand_image`} rounded="md" color="primary" className="bg-gray-100"/>
         </div>
       ),
     },
