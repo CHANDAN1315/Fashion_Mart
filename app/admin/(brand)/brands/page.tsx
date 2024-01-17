@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import { Checkbox, Avatar, Text, Dropdown, Button, Input } from "rizzui";
 import Table from "@/components/Table";
 import HeaderCell from "@/components/TableHeader";
-import { categories } from "@/data/categories";
+import brands from "@/data/brands";
 import {
   MagnifyingGlassIcon,
   ArrowUpTrayIcon,
@@ -15,10 +15,10 @@ import Image from "next/image";
 import PaginationComponent from "@/components/PaginationComponent";
 import DropdownComponent from "@/components/DropdownComponent";
 
-const Categories = () => {
+const Brands = () => {
   const [order, setOrder] = useState<string>("desc");
   const [column, setColumn] = useState<string>("");
-  const [data, setData] = useState<typeof categories>(categories);
+  const [data, setData] = useState<typeof brands>(brands);
 
   const dataLength = 50;
   const currentPage = 1;
@@ -26,7 +26,7 @@ const Categories = () => {
 
   function getStatusBadge(status: string) {
     switch (status.toLowerCase()) {
-      case "published":
+      case "completed":
         return (
           <div className="flex items-center text-green-default gap-1 font-medium">
             <div className="w-1 h-1 bg-green-default rounded-full"></div>
@@ -40,7 +40,7 @@ const Categories = () => {
             {status}
           </div>
         );
-      case "draft":
+      case "refunded":
         return (
           <div className="flex items-center text-red-default gap-1 font-medium">
             <div className="w-1 h-1 bg-red-default rounded-full"></div>
@@ -60,36 +60,30 @@ const Categories = () => {
       width: 50,
       render: () => (
         <div className="inline-flex cursor-pointer">
-          <Checkbox variant="flat" className="accent-black"/>
+          <Checkbox variant="flat" className="accent-black" />
         </div>
       ),
     },
 
     {
-      title: <HeaderCell title="Images" />,
-      dataIndex: "image",
-      key: "image",
+      title: <HeaderCell title="Brand" />,
+      dataIndex: "brand_image",
+      key: "brand_image",
       width: 250,
-      render: (image: string) => (
+      render: (brand_image: string) => (
         <div className="flex items-center">
-          <Avatar src={image} name={`image`} rounded="md" />
+          <Avatar src={brand_image} name={`brand_image`} rounded="md" color="primary"/>
         </div>
       ),
     },
     {
-      title: <HeaderCell title="Category" />,
-      dataIndex: "category_title",
-      key: "category_title",
+      title: <HeaderCell title="Brand name" />,
+      dataIndex: "brand_name",
+      key: "brand_name",
       width: 250,
-      render: (category_title: string) => <div className="text-foreground font-medium">{category_title}</div>,
+      render: (brand_name: string) => <div className="text-foreground font-medium">{brand_name}</div>,
     },
-    {
-      title: <HeaderCell title="Slug" />,
-      dataIndex: "slug",
-      key: "slug",
-      width: 250,
-      render: (slug: string) => <div className="text-foreground">{slug}</div>,
-    },
+
     {
       title: <HeaderCell title="Products" />,
       dataIndex: "products",
@@ -129,12 +123,14 @@ const Categories = () => {
     <>
       {/* Heding section */}
       <div className="text-black font-rufina font-bold text-[24px]">
-        Categories
+        Brands
       </div>
       <div className="flex items-center space-x-2 text-foreground">
         <div>E-commerce</div>
         <div className="w-1 h-1 bg-black rounded-full"></div>
-        <div>Categories</div>
+        <div>Brands</div>
+        <div className="w-1 h-1 bg-black rounded-full"></div>
+        <div>List</div>
       </div>
       <div className="flex justify-between mt-2">
         <Input
@@ -168,7 +164,7 @@ const Categories = () => {
             className="bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted"
           >
             <PlusIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
-            <span>Add Category</span>
+            <span>Create new orders</span>
           </Button>
         </div>
       </div>
@@ -193,4 +189,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default Brands;

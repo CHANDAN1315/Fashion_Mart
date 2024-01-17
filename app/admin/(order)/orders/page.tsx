@@ -60,7 +60,7 @@ const Products = () => {
       width: 50,
       render: () => (
         <div className="inline-flex cursor-pointer">
-          <Checkbox variant="flat" />
+          <Checkbox variant="flat" className="accent-black" />
         </div>
       ),
     },
@@ -173,7 +173,7 @@ const Products = () => {
             className="bg-white text-black border-gray-200 hover:bg-black hover:text-white space-x-2"
           >
             <ArrowUpTrayIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
-            <span>Import</span>
+            <span>Export</span>
           </Button>
 
           <Button

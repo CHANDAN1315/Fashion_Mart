@@ -4,7 +4,8 @@ import { useState, useMemo } from "react";
 import { Checkbox, Avatar, Text, Dropdown, Button, Input } from "rizzui";
 import Table from "@/components/Table";
 import HeaderCell from "@/components/TableHeader";
-import { categories } from "@/data/categories";
+import { customers } from "@/data/customers";
+
 import {
   MagnifyingGlassIcon,
   ArrowUpTrayIcon,
@@ -15,10 +16,10 @@ import Image from "next/image";
 import PaginationComponent from "@/components/PaginationComponent";
 import DropdownComponent from "@/components/DropdownComponent";
 
-const Categories = () => {
+const Customers = () => {
   const [order, setOrder] = useState<string>("desc");
   const [column, setColumn] = useState<string>("");
-  const [data, setData] = useState<typeof categories>(categories);
+  const [data, setData] = useState<typeof customers>(customers);
 
   const dataLength = 50;
   const currentPage = 1;
@@ -26,21 +27,21 @@ const Categories = () => {
 
   function getStatusBadge(status: string) {
     switch (status.toLowerCase()) {
-      case "published":
+      case "active":
         return (
           <div className="flex items-center text-green-default gap-1 font-medium">
             <div className="w-1 h-1 bg-green-default rounded-full"></div>
             {status}
           </div>
         );
-      case "pending":
+      case "new":
         return (
           <div className="flex items-center text-orange-default gap-1 font-medium">
             <div className="w-1 h-1 bg-orange-default rounded-full"></div>
             {status}
           </div>
         );
-      case "draft":
+      case "inactive":
         return (
           <div className="flex items-center text-red-default gap-1 font-medium">
             <div className="w-1 h-1 bg-red-default rounded-full"></div>
@@ -60,46 +61,48 @@ const Categories = () => {
       width: 50,
       render: () => (
         <div className="inline-flex cursor-pointer">
-          <Checkbox variant="flat" className="accent-black"/>
+          <Checkbox variant="flat" className="accent-black" />
         </div>
       ),
     },
 
     {
-      title: <HeaderCell title="Images" />,
-      dataIndex: "image",
-      key: "image",
-      width: 250,
-      render: (image: string) => (
+      title: <HeaderCell title="Customers" />,
+      dataIndex: "customer",
+      key: "customer",
+      width: 300,
+      render: (customer: any) => (
         <div className="flex items-center">
-          <Avatar src={image} name={`image`} rounded="md" />
+          <Avatar src={customer.image} name={`image`} rounded="md" />
+          <div className="ml-3 rtl:ml-0 rtl:mr-3">
+            <Text className="mb-0.5 !text-sm font-roboto font-bold">
+              {customer.name}
+            </Text>
+            <Text as="p" className="text-xs text-foreground">
+              {customer.email}
+            </Text>
+          </div>
         </div>
       ),
     },
+
     {
-      title: <HeaderCell title="Category" />,
-      dataIndex: "category_title",
-      key: "category_title",
+      title: <HeaderCell title="Items Purchased" />,
+      dataIndex: "items_purchase",
+      key: "items_purchase",
       width: 250,
-      render: (category_title: string) => <div className="text-foreground font-medium">{category_title}</div>,
-    },
-    {
-      title: <HeaderCell title="Slug" />,
-      dataIndex: "slug",
-      key: "slug",
-      width: 250,
-      render: (slug: string) => <div className="text-foreground">{slug}</div>,
-    },
-    {
-      title: <HeaderCell title="Products" />,
-      dataIndex: "products",
-      key: "products",
-      width: 250,
-      render: (products: number) => <div className="text-foreground pl-6">{products}</div>,
+      render: (items_purchase: number) => <div className="text-foreground pl-12">{items_purchase}</div>,
     },
 
     {
-      title: <HeaderCell title="Status" />,
+      title: <HeaderCell title="Total Spent" />,
+      dataIndex: "total_spent",
+      key: "total_spent",
+      width: 250,
+      render: (total_spent: number) => <div className="text-foreground pl-4">{total_spent}</div>,
+    },
+    {
+      title: <HeaderCell title="status" />,
       dataIndex: "status",
       key: "status",
       width: 250,
@@ -129,12 +132,14 @@ const Categories = () => {
     <>
       {/* Heding section */}
       <div className="text-black font-rufina font-bold text-[24px]">
-        Categories
+        Customers
       </div>
       <div className="flex items-center space-x-2 text-foreground">
-        <div>E-commerce</div>
+        <div>Customer</div>
         <div className="w-1 h-1 bg-black rounded-full"></div>
-        <div>Categories</div>
+        <div>Customers</div>
+        <div className="w-1 h-1 bg-black rounded-full"></div>
+        <div>List</div>
       </div>
       <div className="flex justify-between mt-2">
         <Input
@@ -168,7 +173,7 @@ const Categories = () => {
             className="bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted"
           >
             <PlusIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
-            <span>Add Category</span>
+            <span>Add new customer</span>
           </Button>
         </div>
       </div>
@@ -193,4 +198,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default Customers;

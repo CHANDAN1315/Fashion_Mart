@@ -8,8 +8,20 @@ export const sidebarData = [
         links : [
             "Product",
             "Catagories",
+            "subcatagories",
             "Orders",
-            "Brands"
+            "Brands",
+            "Ca"
+        ],
+    },
+    {
+        id: 2,
+        title: "Customers",
+        icon: "/assets/icons/svg/white/ic_white_customer.svg",
+        dropDown: "/assets/icons/svg/white/ic_white_arrow_up.svg",
+        links : [
+            "Product",
+            "Add new customer",
         ],
     },
 ]

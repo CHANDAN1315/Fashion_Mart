@@ -60,7 +60,7 @@ const Products = () => {
       width: 50,
       render: () => (
         <div className="inline-flex cursor-pointer">
-          <Checkbox variant="flat" />
+          <Checkbox variant="flat" className="accent-black"/>
         </div>
       ),
     },
@@ -69,7 +69,7 @@ const Products = () => {
       title: <HeaderCell title="Products" />,
       dataIndex: "product",
       key: "product",
-      width: 250,
+      width: 350,
       render: (product: any) => (
         <div className="flex items-center">
           <Avatar src={product.image} name={`image`} rounded="md" />
@@ -95,14 +95,14 @@ const Products = () => {
       title: <HeaderCell title="Price" />,
       dataIndex: "price",
       key: "price",
-      width: 250,
+      width: 200,
       render: (price: string) => <div className="text-foreground">{price}</div>,
     },
     {
       title: <HeaderCell title="Stock" />,
       dataIndex: "inStock",
       key: "inStock",
-      width: 250,
+      width: 200,
       render: (active: boolean) => {
         if (active) {
           return <div className="text-green-default font-medium">In Stock</div>;
@@ -167,7 +167,7 @@ const Products = () => {
             className="bg-white text-black border-gray-200 hover:bg-black hover:text-white space-x-2"
           >
             <ArrowUpTrayIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
-            <span>Import</span>
+            <span>Export</span>
           </Button>
 
           <Button
