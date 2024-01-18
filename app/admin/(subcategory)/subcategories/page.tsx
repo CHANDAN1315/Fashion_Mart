@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import { Checkbox, Avatar, Text, Dropdown, Button, Input } from "rizzui";
 import Table from "@/components/Table";
 import HeaderCell from "@/components/TableHeader";
-import { categories } from "@/data/categories";
+
 import {
   MagnifyingGlassIcon,
   ArrowUpTrayIcon,
@@ -14,11 +14,12 @@ import {
 import Image from "next/image";
 import PaginationComponent from "@/components/PaginationComponent";
 import DropdownComponent from "@/components/DropdownComponent";
+import { subcategories } from "@/data/subcategories";
 
-const Categories = () => {
+const Subcategories = () => {
   const [order, setOrder] = useState<string>("desc");
   const [column, setColumn] = useState<string>("");
-  const [data, setData] = useState<typeof categories>(categories);
+  const [data, setData] = useState<typeof subcategories>(subcategories);
 
   const dataLength = 50;
   const currentPage = 1;
@@ -72,16 +73,16 @@ const Categories = () => {
       width: 250,
       render: (image: string) => (
         <div className="flex items-center">
-          <Avatar src={image} name={`image`} rounded="md" color="primary" className="bg-muted"/>
+          <Avatar src={image} name={`image`} rounded="md" color="primary" className="bg-muted" />
         </div>
       ),
     },
     {
-      title: <HeaderCell title="Category" />,
-      dataIndex: "category_title",
-      key: "category_title",
+      title: <HeaderCell title="Subcategory" />,
+      dataIndex: "subcategory_title",
+      key: "subcategory_title",
       width: 250,
-      render: (category_title: string) => <div className="text-foreground font-medium">{category_title}</div>,
+      render: (subcategory_title: string) => <div className="text-foreground">{subcategory_title}</div>,
     },
     {
       title: <HeaderCell title="Slug" />,
@@ -90,6 +91,13 @@ const Categories = () => {
       width: 250,
       render: (slug: string) => <div className="text-foreground">{slug}</div>,
     },
+    {
+        title: <HeaderCell title="Parent category" />,
+        dataIndex: "parent_category",
+        key: "parent_category",
+        width: 250,
+        render: (parent_category: string) => <div className="text-foreground font-medium">{parent_category}</div>,
+      },
     {
       title: <HeaderCell title="Products" />,
       dataIndex: "products",
@@ -129,12 +137,12 @@ const Categories = () => {
     <>
       {/* Heding section */}
       <div className="text-black font-rufina font-bold text-[24px]">
-        Categories
+      Subcategories
       </div>
       <div className="flex items-center space-x-2 text-foreground">
         <div>E-commerce</div>
         <div className="w-1 h-1 bg-black rounded-full"></div>
-        <div>Categories</div>
+        <div>Subcategories</div>
       </div>
       <div className="flex justify-between mt-2">
         <Input
@@ -168,7 +176,7 @@ const Categories = () => {
             className="bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted"
           >
             <PlusIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
-            <span>Add Category</span>
+            <span>Add subcategories</span>
           </Button>
         </div>
       </div>
@@ -193,4 +201,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default Subcategories;

@@ -73,7 +73,7 @@ const Customers = () => {
       width: 300,
       render: (customer: any) => (
         <div className="flex items-center">
-          <Avatar src={customer.image} name={`image`} rounded="md" />
+          <Avatar src={customer.image} name={`image`} rounded="md" color="primary" className="bg-muted" />
           <div className="ml-3 rtl:ml-0 rtl:mr-3">
             <Text className="mb-0.5 !text-sm font-roboto font-bold">
               {customer.name}
