@@ -72,7 +72,7 @@ const Categories = () => {
       width: 250,
       render: (brand: string) => (
         <div className="flex items-center">
-          <Avatar src={brand} name={`brand_image`} rounded="md" color="primary" className="bg-muted"/>
+          <Avatar src={brand} name={`brand_image`} rounded="md" color="primary" className="bg-muted"  />
         </div>
       ),
     },
@@ -80,15 +80,15 @@ const Categories = () => {
       title: <HeaderCell title="Code" />,
       dataIndex: "code",
       key: "code",
-      width: 250,
+      width: 200,
       render: (code: string) => <div className="text-foreground ">{code}</div>,
     },
     {
       title: <HeaderCell title="Discount" />,
       dataIndex: "discount",
       key: "discount",
-      width: 250,
-      render: (discount: string) => <div className="text-foreground">{discount}</div>,
+      width: 200,
+      render: (discount: string) => <div className="text-foreground pl-4">{discount}</div>,
     },
     {
       title: <HeaderCell title="Expiry Date" />,

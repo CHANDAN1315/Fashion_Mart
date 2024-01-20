@@ -15,7 +15,7 @@ import Image from "next/image";
 import PaginationComponent from "@/components/PaginationComponent";
 import DropdownComponent from "@/components/DropdownComponent";
 
-const Products = () => {
+const Orders = () => {
   const [order, setOrder] = useState<string>("desc");
   const [column, setColumn] = useState<string>("");
   const [data, setData] = useState<typeof orders>(orders);
@@ -170,7 +170,7 @@ const Products = () => {
         <div className="flex space-x-4">
           <Button
             rounded="pill"
-            className="bg-white text-black border-gray-200 hover:bg-black hover:text-white space-x-2"
+            className="bg-white text-black border-muted hover:bg-black hover:text-white space-x-2"
           >
             <ArrowUpTrayIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
             <span>Export</span>
@@ -178,7 +178,7 @@ const Products = () => {
 
           <Button
             rounded="pill"
-            className="bg-white text-black border-gray-200 hover:bg-black hover:text-white space-x-2"
+            className="bg-white text-black border-muted hover:bg-black hover:text-white space-x-2"
           >
             <FunnelIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
             <span>Filter</span>
@@ -215,4 +215,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Orders;
