@@ -58,14 +58,14 @@ const Orderdetails = () => {
               <Image
                 src="/assets/images/products/8.png"
                 alt="product_img"
-                width={40}
-                height={40}
+                width={50}
+                height={50}
               />
               <div className="text-black font-medium">Denim Jacket</div>
             </div>
-            <div className="mr-10">$295.00</div>
-            <div className="mr-28">3</div>
-            <div>$885.00</div>
+            <div className="mr-10 pt-4">$295.00</div>
+            <div className="mr-28 pt-4">3</div>
+            <div className="pt-4">$885.00</div>
           </div>
 
           {/* Order summary */}
@@ -122,13 +122,62 @@ const Orderdetails = () => {
           <div className="text-black font-rufina font-bold text-[1.3rem] pb-2">
             Order status
           </div>
-          <Stepper direction="vertical"  className="border-2 border-muted p-4 rounded-lg ">
+          <Stepper
+            direction="vertical"
+            className="border-2 border-muted p-4 rounded-lg "
+          >
             <Stepper.Step title="Order pending" />
             <Stepper.Step title="Order processing" />
             <Stepper.Step title="Order at local facility" />
             <Stepper.Step title="Order out for delivery" />
             <Stepper.Step title="Order completed" />
           </Stepper>
+
+          <div className="text-black font-rufina font-bold text-[1.3rem] mt-6 mb-4">
+            Customer Details
+          </div>
+              {/* Customer details */}
+          <div className="flex  items-center gap-4 border-muted border-2 p-4 rounded-lg">
+            <Image
+              src="/assets/avatar/user_1.png"
+              alt="profile"
+              width={70}
+              height={70}
+            />
+            <div>
+              <div className="font-bold font-roboto text-black">
+                Steven rogers
+              </div>
+              <div className="text-foreground font-roboto">
+                nevaeh.simmons@example.com
+              </div>
+              <div className="text-foreground font-roboto">(316) 555-0116</div>
+            </div>
+          </div>
+
+              {/* Shipping Address */}
+          <div className="text-black font-rufina font-bold text-[1.3rem] mt-4 mb-4">
+            Shipping Address
+          </div>
+          <div className=" border-muted border-2 p-4 rounded-lg">
+            <div className="font-bold font-roboto text-black pb-2">Home</div>
+            <div className="text-foreground font-roboto">
+              Mr John Smith. 132, My Street. US California
+            </div>
+            <div className="text-foreground font-roboto">(316) 555-0116</div>
+          </div>
+
+              {/* Billing address */}
+          <div className="text-black font-rufina font-bold text-[1.3rem] mt-4 mb-4">
+            Billing Address
+          </div>
+          <div className=" border-muted border-2 p-4 rounded-lg mb-6">
+            <div className="font-bold font-roboto text-black pb-2">Home</div>
+            <div className="text-foreground font-roboto">
+              Mr John Smith. 132, My Street. US California
+            </div>
+            <div className="text-foreground font-roboto">(316) 555-0116</div>
+          </div>
         </div>
       </div>
     </>
