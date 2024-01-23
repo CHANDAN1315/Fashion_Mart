@@ -1,7 +1,18 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Checkbox, Avatar, Text, Dropdown, Button, Input } from "rizzui";
+import {
+  Checkbox,
+  Avatar,
+  Text,
+  Dropdown,
+  Button,
+  Input,
+  ActionIcon,
+  Modal,
+  Password,
+  Radio,
+} from "rizzui";
 import Table from "@/components/Table";
 import HeaderCell from "@/components/TableHeader";
 import {
@@ -14,11 +25,15 @@ import Image from "next/image";
 import PaginationComponent from "@/components/PaginationComponent";
 import DropdownComponent from "@/components/DropdownComponent";
 import coupons from "@/data/coupons";
+import { XMarkIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
 
 const Categories = () => {
   const [order, setOrder] = useState<string>("desc");
   const [column, setColumn] = useState<string>("");
   const [data, setData] = useState<typeof coupons>(coupons);
+  // Local states
+  const [modalState, setModalState] = useState<boolean>(false);
 
   const dataLength = 50;
   const currentPage = 1;
@@ -60,7 +75,7 @@ const Categories = () => {
       width: 50,
       render: () => (
         <div className="inline-flex cursor-pointer">
-          <Checkbox variant="flat" className="accent-black"/>
+          <Checkbox variant="flat" className="accent-black" />
         </div>
       ),
     },
@@ -72,7 +87,13 @@ const Categories = () => {
       width: 250,
       render: (brand: string) => (
         <div className="flex items-center">
-          <Avatar src={brand} name={`brand_image`} rounded="md" color="primary" className="bg-muted"  />
+          <Avatar
+            src={brand}
+            name={`brand_image`}
+            rounded="md"
+            color="primary"
+            className="bg-muted"
+          />
         </div>
       ),
     },
@@ -88,14 +109,18 @@ const Categories = () => {
       dataIndex: "discount",
       key: "discount",
       width: 200,
-      render: (discount: string) => <div className="text-foreground pl-4">{discount}</div>,
+      render: (discount: string) => (
+        <div className="text-foreground pl-4">{discount}</div>
+      ),
     },
     {
       title: <HeaderCell title="Expiry Date" />,
       dataIndex: "expiry_date",
       key: "expiry_date",
       width: 250,
-      render: (expiry_date: number) => <div className="text-foreground font-medium">{expiry_date}</div>,
+      render: (expiry_date: number) => (
+        <div className="text-foreground font-medium">{expiry_date}</div>
+      ),
     },
 
     {
@@ -163,7 +188,8 @@ const Categories = () => {
             <FunnelIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
             <span>Filter</span>
           </Button>
-
+          
+          <Link href={"javascript:void(0)"} onClick={() => setModalState(true)}>
           <Button
             rounded="pill"
             color="primary"
@@ -172,6 +198,7 @@ const Categories = () => {
             <PlusIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
             <span>Add new coupon</span>
           </Button>
+          </Link>
         </div>
       </div>
 
@@ -191,6 +218,75 @@ const Categories = () => {
           defaultCurrent={currentPage}
         />
       </div>
+
+      {/*Category Modal */}
+      <Modal isOpen={modalState} onClose={() => setModalState(false)}>
+        <div className="m-auto px-4 pt-6 pb-8">
+          <div className="mb-4 flex  justify-between">
+            <div className="space-y-2">
+              <div className="text-black font-rufina font-bold text-3xl">
+                Add new Coupon.
+              </div>
+              <div className="text-sm text-foreground">
+                Fill up the forms down below to add new coupon.
+              </div>
+            </div>
+            <ActionIcon
+              size="sm"
+              variant="text"
+              onClick={() => setModalState(false)}
+            >
+              <XMarkIcon className="h-auto w-6" strokeWidth={1.8} />
+            </ActionIcon>
+          </div>
+
+          <Input
+            label="Coupon code"
+            placeholder="Enter Code"
+            className="mb-4"
+            rounded="pill"
+            size="xl"
+          />
+          <Input
+            label="Discount"
+            placeholder="Enter discount"
+            className="mb-4"
+            rounded="pill"
+            size="xl"
+          />
+
+          {/* Button */}
+          <div className="flex items-center space-x-2 rounded-full border-2 border-muted">
+            <Button
+              type="button"
+              className="text-black hover:text-white border-2 border-muted m-1 px-6"
+              rounded="pill"
+              size="md"
+              onClick={() => setModalState(false)}
+            >
+              Choose file
+            </Button>
+            <div className="text-foreground">No file Choosen</div>
+          </div>
+
+          <div className="flex items-center space-x-8 my-4 ml-2 ">
+            <Radio label="Published" className="accent-black" />
+            <Radio label="Pending" className="accent-black" />
+            <Radio label="Draft" className="accent-black" />
+          </div>
+
+          <Button
+            type="button"
+            className="w-full text-black hover:text-white border-2 border-muted m-2"
+            rounded="pill"
+            size="lg"
+            onClick={() => setModalState(false)}
+          >
+            {" "}
+            Submit
+          </Button>
+        </div>
+      </Modal>
     </>
   );
 };

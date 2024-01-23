@@ -1,10 +1,22 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Checkbox, Avatar, Text, Dropdown, Button, Input } from "rizzui";
+import {
+  Checkbox,
+  Avatar,
+  Text,
+  Dropdown,
+  Button,
+  Input,
+  ActionIcon,
+  Modal,
+  Password,
+  Radio,
+} from "rizzui";
 import Table from "@/components/Table";
 import HeaderCell from "@/components/TableHeader";
 import { categories } from "@/data/categories";
+
 import {
   MagnifyingGlassIcon,
   ArrowUpTrayIcon,
@@ -14,11 +26,15 @@ import {
 import Image from "next/image";
 import PaginationComponent from "@/components/PaginationComponent";
 import DropdownComponent from "@/components/DropdownComponent";
+import { XMarkIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
 
 const Categories = () => {
   const [order, setOrder] = useState<string>("desc");
   const [column, setColumn] = useState<string>("");
   const [data, setData] = useState<typeof categories>(categories);
+  // Local states
+  const [modalState, setModalState] = useState<boolean>(false);
 
   const dataLength = 50;
   const currentPage = 1;
@@ -60,7 +76,7 @@ const Categories = () => {
       width: 50,
       render: () => (
         <div className="inline-flex cursor-pointer">
-          <Checkbox variant="flat" className="accent-black"/>
+          <Checkbox variant="flat" className="accent-black" />
         </div>
       ),
     },
@@ -72,7 +88,13 @@ const Categories = () => {
       width: 250,
       render: (image: string) => (
         <div className="flex items-center">
-          <Avatar src={image} name={`image`} rounded="md" color="primary" className="bg-muted"/>
+          <Avatar
+            src={image}
+            name={`image`}
+            rounded="md"
+            color="primary"
+            className="bg-muted"
+          />
         </div>
       ),
     },
@@ -81,7 +103,9 @@ const Categories = () => {
       dataIndex: "category_title",
       key: "category_title",
       width: 250,
-      render: (category_title: string) => <div className="text-foreground font-medium">{category_title}</div>,
+      render: (category_title: string) => (
+        <div className="text-foreground font-medium">{category_title}</div>
+      ),
     },
     {
       title: <HeaderCell title="Slug" />,
@@ -95,7 +119,9 @@ const Categories = () => {
       dataIndex: "products",
       key: "products",
       width: 250,
-      render: (products: number) => <div className="text-foreground pl-6">{products}</div>,
+      render: (products: number) => (
+        <div className="text-foreground pl-6">{products}</div>
+      ),
     },
 
     {
@@ -162,14 +188,17 @@ const Categories = () => {
             <span>Filter</span>
           </Button>
 
-          <Button
-            rounded="pill"
-            color="primary"
-            className="bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted"
-          >
-            <PlusIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
-            <span>Add Category</span>
-          </Button>
+          <Link href={"javascript:void(0)"} onClick={() => setModalState(true)}>
+            <Button
+              rounded="pill"
+              color="primary"
+              className="bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted"
+            >
+              <PlusIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
+              <span>Add Category</span>
+            </Button>
+          </Link>
+          
         </div>
       </div>
 
@@ -189,6 +218,65 @@ const Categories = () => {
           defaultCurrent={currentPage}
         />
       </div>
+
+      {/*Category Modal */}
+      <Modal isOpen={modalState} onClose={() => setModalState(false)}>
+        <div className="m-auto px-4 pt-6 pb-8">
+          <div className="mb-4 flex  justify-between">
+            <div className="space-y-2">
+              <div className="text-black font-rufina font-bold text-3xl">
+                Add category.
+              </div>
+              <div className="text-sm text-foreground">
+                Fill up the forms down below to add category.
+              </div>
+            </div>
+            <ActionIcon
+              size="sm"
+              variant="text"
+              onClick={() => setModalState(false)}
+            >
+              <XMarkIcon className="h-auto w-6" strokeWidth={1.8} />
+            </ActionIcon>
+          </div>
+
+          <Input
+            label="Category"
+            placeholder="Enter category"
+            className="mb-4"
+            rounded="pill"
+            size="xl"
+          />
+
+          {/* Button */}
+          <div className="flex items-center space-x-2 rounded-full border-2 border-muted">
+            <Button
+              type="button"
+              className="text-black hover:text-white border-2 border-muted m-1 px-6 "
+              rounded="pill"
+              size="md"
+              onClick={() => setModalState(false)}
+            >
+              Choose file
+            </Button>
+            <div className="text-foreground">No file Choosen</div>
+          </div>
+
+          <div className="flex items-center space-x-8 my-4 ml-2 ">
+            <Radio label="Published" className="accent-black" />
+            <Radio label="Pending" className="accent-black" />
+            <Radio label="Draft" className="accent-black" />
+          </div>
+
+          <Button
+            type="button"
+            className="w-full text-black hover:text-white border-2 border-muted m-2"
+            rounded="pill"
+            size="lg"
+            onClick={() => setModalState(false)}
+          > Submit</Button>
+        </div>
+      </Modal>
     </>
   );
 };

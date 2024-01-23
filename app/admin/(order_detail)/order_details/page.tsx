@@ -111,7 +111,7 @@ const Orderdetails = () => {
                 </div>
                 <div className="flex items-center gap-1">
                   <div className="">{payment.amount}</div>
-                  <Radio className="accent-black" />
+                  <Radio className="accent-black"/>
                 </div>
               </div>
             ))}

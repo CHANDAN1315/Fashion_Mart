@@ -7,26 +7,26 @@ import {
   ArchiveBoxIcon,
   MapPinIcon,
   CogIcon,
+  CameraIcon,
 } from "@heroicons/react/24/outline";
 import { Button, Input } from "rizzui";
-import {
-  ArrowRightStartOnRectangleIcon,
-  TrashIcon,
-} from "@heroicons/react/20/solid";
 
-
-
-const Profile = () => {
+const Editprofile = () => {
   return (
     <div className="h-[100vh]">
       {/* User Profile */}
-      <div className="flex  gap-4">
-        <Image
-          src="/assets/avatar/memoji.png"
-          alt="profile"
-          width={150}
-          height={150}
-        />
+      <div className="flex  items-center gap-4">
+        <div className="relative">
+          <Image
+            src="/assets/avatar/memoji.png"
+            alt="profile"
+            width={150}
+            height={150}
+            className="opacity-30 "
+          />
+          <CameraIcon className=" absolute w-6 z-2 bottom-14 left-14"/>
+        </div>
+
         <div className="flex flex-col justify-center">
           <div className="flex gap-2">
             <div className="font-rufina font-bold text-black text-[28px]">
@@ -41,6 +41,23 @@ const Profile = () => {
           </div>
           <div className="text-foreground">nevaeh.simmons@example.com</div>
           <div className="text-foreground">(316) 555-0116</div>
+        </div>
+        <div className="flex w-[30%] ml-auto gap-4">
+          <Button
+            variant="solid"
+            rounded="pill"
+            className="text-black hover:text-white border-2 border-muted w-full py-4 "
+          >
+            Save changes
+          </Button>
+
+          <Button
+            variant="solid"
+            rounded="pill"
+            className="text-black hover:text-white border-2 border-muted w-full py-4 px-6"
+          >
+            Discard changes
+          </Button>
         </div>
       </div>
 
@@ -95,9 +112,7 @@ const Profile = () => {
           className="text-black hover:text-white border-2 border-muted gap-2 py-4 px-6"
         >
           <CogIcon width={20} />
-          <span className="">
-            Settings
-          </span>
+          <span className="">Settings</span>
         </Button>
       </div>
       <div className="border-t-2 text-muted mt-4"></div>
@@ -137,27 +152,6 @@ const Profile = () => {
                 Female
               </Button>
             </div>
-            <div className="flex gap-4 mt-4">
-              <Button
-                variant="solid"
-                rounded="pill"
-                className="text-red-default border-2 border-muted py-4 w-[40%] hover:bg-white"
-              >
-                <span>Log out account</span>
-                <ArrowRightStartOnRectangleIcon
-                  strokeWidth="2"
-                  className="h-4 w-4 ml-2"
-                />
-              </Button>
-              <Button
-                variant="solid"
-                rounded="pill"
-                className="text-red-default border-2 border-muted py-4 w-[40%] hover:bg-white"
-              >
-                <span>Delete account</span>
-                <TrashIcon strokeWidth="2" className="h-4 w-4 ml-2" />
-              </Button>
-            </div>
           </div>
         </div>
 
@@ -173,10 +167,9 @@ const Profile = () => {
               DOB/Date of birth
             </label>
             <div className="flex gap-4 mt-2">
-            <Input placeholder="day" rounded="pill" />
-            <Input placeholder="month" rounded="pill" />
-            <Input placeholder="year" rounded="pill" />
-
+              <Input placeholder="day" rounded="pill" />
+              <Input placeholder="month" rounded="pill" />
+              <Input placeholder="year" rounded="pill" />
             </div>
           </div>
         </div>
@@ -185,4 +178,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Editprofile;

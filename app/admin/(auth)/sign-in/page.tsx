@@ -101,7 +101,13 @@ const SignIn = () => {
       {/* Modal */}
       <Modal isOpen={modalState} onClose={() => setModalState(false)}>
         <div className="m-auto px-4 pt-6 pb-8">
-          <div className="mb-4 flex items-center justify-end">
+          <div className="mb-4 flex  justify-between">
+            <div className="space-y-2">
+              <div className="text-black font-rufina font-bold text-3xl">
+                Recover password.
+              </div>
+              <div className="text-sm text-foreground">Enter your email to recover your password.</div>
+            </div>
             <ActionIcon
               size="sm"
               variant="text"
@@ -121,7 +127,7 @@ const SignIn = () => {
 
           <Checkbox
             size="lg"
-            className="mb-4"
+            className="mb-4 accent-black"
             label={
               <Text className="text-sm">
                 I agree to FashionMart&lsquo;s{" "}
@@ -135,7 +141,7 @@ const SignIn = () => {
           {/* Button */}
           <Button
             type="button"
-            className="w-full"
+            className="w-full text-black hover:text-white border-2 border-muted"
             rounded="pill"
             size="xl"
             onClick={() => setModalState(false)}
