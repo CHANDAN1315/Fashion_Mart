@@ -1,10 +1,10 @@
-
+import { ChevronDownIcon, ShoppingBagIcon , UserCircleIcon} from "@heroicons/react/24/outline"
 export const sidebarData = [
     {
         id: 1,
         title: "E-commerce",
-        icon: "/assets/icons/svg/white/ic_white_shopping_bag.svg",
-        dropDown: "/assets/icons/svg/white/ic_white_arrow_up.svg",
+        icon: ShoppingBagIcon,
+        dropDown: ChevronDownIcon,
         links : [
             "Product",
             "Catagories",
@@ -17,8 +17,8 @@ export const sidebarData = [
     {
         id: 2,
         title: "Customers",
-        icon: "/assets/icons/svg/white/ic_white_customer.svg",
-        dropDown: "/assets/icons/svg/white/ic_white_arrow_up.svg",
+        icon: UserCircleIcon,
+        dropDown: ChevronDownIcon,
         links : [
             "Product",
             "Add new customer",

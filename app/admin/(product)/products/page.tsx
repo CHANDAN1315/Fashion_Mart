@@ -144,7 +144,7 @@ const Products = () => {
   return (
     <>
       {/* Heding section */}
-      <div className="text-black font-rufina font-bold text-[24px]">
+      <div className=" text-black dark:text-white font-rufina font-bold text-[24px]">
         Products
       </div>
       <div className="flex items-center space-x-2 text-foreground">

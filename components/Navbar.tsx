@@ -1,33 +1,34 @@
 "use client";
 
 import Image from "next/image";
+import { ThemeSwitcher } from "./ThemeSwitcher";
+import { CogIcon, BellAlertIcon } from "@heroicons/react/24/outline";
 
 const Navbar = () => {
   return (
-    <section className=" flex justify-between border-muted border-y-2 border-l-2">
-      <Image
-        src="/assets/logo/logo.png"
-        alt="logo"
-        width={130}
-        height={130}
-        className="m-4"
-      />
-      <div className="flex space-x-4 mr-4">
-        <div className="flex justify-center bg-muted rounded-full m-2 px-2 ">
-          <Image
-            src="/assets/icons/svg/black/ic_black_bell.svg"
-            alt="notificaiton"
-            width={25}
-            height={25}
-          />
+    <section className=" flex justify-between border-muted border-y-2 border-l-2 py-1">
+      <div className="flex items-center space-x-1 ">
+        <Image
+          src="/assets/logo/Subtract.svg"
+          alt="logo"
+          width={24}
+          height={24}
+          className="m-4"
+        />
+        <div className="text-black dark:text-white text-lg font-medium">
+          Fashion Mart
         </div>
-        <div className="flex justify-center bg-muted rounded-full m-2 px-2 ">
-          <Image
-            src="/assets/icons/svg/black/ic_black_gear.svg"
-            alt="gear"
-            width={25}
-            height={25}
-          />
+      </div>
+
+      <div className="flex space-x-4 mr-4">
+        <div className=" flex items-center bg-muted dark:bg-[#18181B] rounded-full m-2 p-1" >
+          <ThemeSwitcher />
+        </div>
+        <div className="flex items-center bg-muted dark:bg-[#18181B] rounded-full m-2 px-2 ">
+          <BellAlertIcon width={25} height={25}/>
+        </div>
+        <div className="flex items-center bg-muted dark:bg-[#18181B] rounded-full m-2 px-2 ">
+          <CogIcon width={25} height={25} />
         </div>
         <div className="flex justify-center items-center">
           <Image

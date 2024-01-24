@@ -1,4 +1,5 @@
 // Imports
+import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
@@ -31,12 +32,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${rufina.variable} ${roboto.variable}`}>
-      <body className="max-w-[1440px] mx-auto border-r-2 border-muted">
-        <Navbar />
-        {children}
-        <Footer/>
-      </body>
+    <html
+      lang="en"
+      className={`${rufina.variable} ${roboto.variable}`}
+      suppressHydrationWarning
+    >
+      <ThemeProvider>
+        <body
+          className="max-w-[1440px] mx-auto border-r-2 border-muted"
+          suppressHydrationWarning
+        >
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
