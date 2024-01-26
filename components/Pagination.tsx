@@ -39,7 +39,7 @@ const paginationStyles = {
       base: "",
       color: {
         primary:
-          "[&>.rc-pagination-item-active]:bg-black [&>li.rc-pagination-item-active]:border-primary-lighter [&>.rc-pagination-item-active>a]:text-white [&>.rc-pagination-item-active>a]:hover:text-white [&>.rc-pagination-item-active>a]:focus:text-white [&>.rc-pagination-item-active]:hover:border-primary-lighter [&>.rc-pagination-item-active]:focus:border-primary-lighter",
+          "[&>.rc-pagination-item-active]:bg-black dark:[&>.rc-pagination-item-active]:bg-white  [&>li.rc-pagination-item-active]:border-primary-lighter   dark:[&>li.rc-pagination-item-active]:border-white   [&>.rc-pagination-item-active>a]:text-white  dark:[&>.rc-pagination-item-active>a]:text-black    [&>.rc-pagination-item-active>a]:hover:text-white   dark:[&>.rc-pagination-item-active>a]:hover:text-black   [&>.rc-pagination-item-active>a]:focus:text-white  dark:[&>.rc-pagination-item-active>a]:focus:text-black   [&>.rc-pagination-item-active]:hover:border-primary-lighter [&>.rc-pagination-item-active]:focus:border-primary-lighter  dark:[&>.rc-pagination-item-active]:focus:border-primary-lighter",
         secondary:
           "[&>.rc-pagination-item-active]:bg-secondary-lighter [&>li.rc-pagination-item-active]:border-secondary-lighter [&>.rc-pagination-item-active>a]:text-secondary-dark [&>.rc-pagination-item-active>a]:hover:text-secondary-dark [&>.rc-pagination-item-active>a]:focus:text-secondary-dark [&>.rc-pagination-item-active]:hover:border-secondary-lighter [&>.rc-pagination-item-active]:focus:border-secondary-lighter",
         danger:

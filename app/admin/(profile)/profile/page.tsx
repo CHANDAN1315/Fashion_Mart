@@ -14,8 +14,6 @@ import {
   TrashIcon,
 } from "@heroicons/react/20/solid";
 
-
-
 const Profile = () => {
   return (
     <div className="h-[100vh]">
@@ -29,7 +27,7 @@ const Profile = () => {
         />
         <div className="flex flex-col justify-center">
           <div className="flex gap-2">
-            <div className="font-rufina font-bold text-black text-[28px]">
+            <div className="font-rufina font-bold text-black dark:text-white text-[28px]">
               Steven Rogers
             </div>
             <Image
@@ -49,7 +47,7 @@ const Profile = () => {
         <Button
           variant="solid"
           rounded="pill"
-          className="text-black hover:text-white border-2 border-muted gap-2 py-4 px-6"
+          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
         >
           <UsersIcon width={20} />
           <span className="">My Profile</span>
@@ -57,7 +55,7 @@ const Profile = () => {
         <Button
           variant="solid"
           rounded="pill"
-          className="text-black hover:text-white border-2 border-muted gap-2 py-4 px-6"
+          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
         >
           <PencilIcon width={20} />
           <span className="">Edit profile</span>
@@ -65,7 +63,7 @@ const Profile = () => {
         <Button
           variant="solid"
           rounded="pill"
-          className="text-black hover:text-white border-2 border-muted gap-2 py-4 px-6"
+          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
         >
           <BellAlertIcon width={20} />
           <span className="">Notification</span>
@@ -74,7 +72,7 @@ const Profile = () => {
         <Button
           variant="solid"
           rounded="pill"
-          className="text-black hover:text-white border-2 border-muted gap-2 py-4 px-6"
+          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
         >
           <ArchiveBoxIcon width={20} />
           <span className="">My orders</span>
@@ -83,7 +81,7 @@ const Profile = () => {
         <Button
           variant="solid"
           rounded="pill"
-          className="text-black hover:text-white border-2 border-muted gap-2 py-4 px-6"
+          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
         >
           <MapPinIcon width={20} />
           <span className="">Addresses</span>
@@ -92,15 +90,13 @@ const Profile = () => {
         <Button
           variant="solid"
           rounded="pill"
-          className="text-black hover:text-white border-2 border-muted gap-2 py-4 px-6"
+          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
         >
           <CogIcon width={20} />
-          <span className="">
-            Settings
-          </span>
+          <span className="">Settings</span>
         </Button>
       </div>
-      <div className="border-t-2 text-muted mt-4"></div>
+      <div className="border-t-2 border-muted dark:border-[#333333] mt-4"></div>
 
       {/* Input sections */}
 
@@ -110,12 +106,13 @@ const Profile = () => {
             label="User name"
             placeholder="Enter your name"
             rounded="pill"
+            inputClassName="dark:border-[#333333]"
           />
           <Input
             label="Phone number"
             placeholder="Enter your phone number"
             rounded="pill"
-            className=""
+            inputClassName="dark:border-[#333333]"
           />
           <div className="">
             <label htmlFor="gender" className="font-medium text-sm ">
@@ -125,14 +122,14 @@ const Profile = () => {
               <Button
                 variant="solid"
                 rounded="pill"
-                className="text-black hover:text-white border-2 border-muted w-full py-4"
+                className="text-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black border-2  border-muted dark:border-[#333333] w-full py-4"
               >
                 Male
               </Button>
               <Button
                 variant="solid"
                 rounded="pill"
-                className="text-black hover:text-white border-2 border-muted w-full py-4"
+                className="text-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black border-2  border-muted dark:border-[#333333] w-full py-4"
               >
                 Female
               </Button>
@@ -141,7 +138,7 @@ const Profile = () => {
               <Button
                 variant="solid"
                 rounded="pill"
-                className="text-red-default border-2 border-muted py-4 w-[40%] hover:bg-white"
+                className="text-red-default border-2 border-muted dark:border-[#333333] py-4 w-[40%] hover:bg-white"
               >
                 <span>Log out account</span>
                 <ArrowRightStartOnRectangleIcon
@@ -152,7 +149,7 @@ const Profile = () => {
               <Button
                 variant="solid"
                 rounded="pill"
-                className="text-red-default border-2 border-muted py-4 w-[40%] hover:bg-white"
+                className="text-red-default border-2 border-muted dark:border-[#333333] py-4 w-[40%] hover:bg-white"
               >
                 <span>Delete account</span>
                 <TrashIcon strokeWidth="2" className="h-4 w-4 ml-2" />
@@ -162,21 +159,29 @@ const Profile = () => {
         </div>
 
         <div className="w-[50%] mt-6 space-y-4 ml-12">
-          <Input label="Email" placeholder="Enter your Email" rounded="pill" />
+          <Input
+            label="Email"
+            placeholder="Enter your Email"
+            rounded="pill"
+            inputClassName="dark:border-[#333333]"
+          />
           <Input
             label="Location"
             placeholder="Enter your phone Location"
             rounded="pill"
+            inputClassName="dark:border-[#333333]"
           />
           <div className="">
             <label htmlFor="date of birth" className="text-sm font-medium">
               DOB/Date of birth
             </label>
             <div className="flex gap-4 mt-2">
-            <Input placeholder="day" rounded="pill" />
-            <Input placeholder="month" rounded="pill" />
-            <Input placeholder="year" rounded="pill" />
-
+              <Input placeholder="day" rounded="pill" inputClassName="dark:border-[#333333]"
+/>
+              <Input placeholder="month" rounded="pill" inputClassName="dark:border-[#333333]"
+ />
+              <Input placeholder="year" rounded="pill" inputClassName="dark:border-[#333333]"
+ />
             </div>
           </div>
         </div>

@@ -34,7 +34,6 @@ module.exports = {
          * border, default flat bg color for input components, tab & dropdown hover color
          */
         muted: colors.gray[200],
-
         /*
          * primary colors
          */

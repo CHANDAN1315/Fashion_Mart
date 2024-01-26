@@ -21,6 +21,7 @@ import {
   ArrowUpTrayIcon,
   FunnelIcon,
   PlusIcon,
+  EllipsisVerticalIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import PaginationComponent from "@/components/PaginationComponent";
@@ -75,7 +76,7 @@ const Subcategories = () => {
       width: 50,
       render: () => (
         <div className="inline-flex cursor-pointer">
-          <Checkbox variant="flat" className="accent-black" />
+          <Checkbox variant="flat" className="accent-black dark:accent-white" />
         </div>
       ),
     },
@@ -142,13 +143,8 @@ const Subcategories = () => {
     {
       title: <HeaderCell title="Actions" />,
       render: () => (
-        <div className=" flex justify-center items-center w-10 h-10 bg-gray-200 rounded-full">
-          <Image
-            src="/assets/icons/svg/black/ic_black_3_dots.svg"
-            alt="three_dots"
-            height={25}
-            width={25}
-          />
+        <div className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
+          <EllipsisVerticalIcon width={25} height={25}/>
         </div>
       ),
     },
@@ -162,7 +158,7 @@ const Subcategories = () => {
   return (
     <>
       {/* Heding section */}
-      <div className="text-black font-rufina font-bold text-[24px]">
+      <div className=" text-black dark:text-white font-rufina font-bold text-[24px]">
         Subcategories
       </div>
       <div className="flex items-center space-x-2 text-foreground">
@@ -182,7 +178,7 @@ const Subcategories = () => {
         <div className="flex space-x-4">
           <Button
             rounded="pill"
-            className="bg-white text-black border-gray-200 hover:bg-black hover:text-white space-x-2"
+            className="bg-white text-black border-gray-200 hover:bg-black hover:text-white dark:bg-black dark:text-white dark:border-[#333333] dark:hover:bg-white dark:hover:text-black space-x-2"
           >
             <ArrowUpTrayIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
             <span>Export</span>
@@ -190,7 +186,7 @@ const Subcategories = () => {
 
           <Button
             rounded="pill"
-            className="bg-white text-black border-gray-200 hover:bg-black hover:text-white space-x-2"
+            className="bg-white text-black border-gray-200 hover:bg-black hover:text-white dark:bg-black dark:text-white dark:border-[#333333] dark:hover:bg-white dark:hover:text-black space-x-2"
           >
             <FunnelIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
             <span>Filter</span>
@@ -200,8 +196,8 @@ const Subcategories = () => {
             <Button
               rounded="pill"
               color="primary"
-              className="bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted"
-            >
+              className="bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted dark:bg-white dark:text-black dark:border-[#333333] dark:hover:bg-black dark:hover:text-white"
+              >
               <PlusIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
               <span>Add subcategories</span>
             </Button>

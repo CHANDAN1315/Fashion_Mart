@@ -13,7 +13,7 @@ export default function App({ title, optionData }: any) {
       <Dropdown.Menu className="w-16">
         {optionData?.map((data: string) => (
           <div key={data}>
-            <Dropdown.Item>{data}</Dropdown.Item>
+            <Dropdown.Item >{data}</Dropdown.Item>
           </div>
         ))}
       </Dropdown.Menu>

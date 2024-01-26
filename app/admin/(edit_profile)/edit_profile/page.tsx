@@ -29,7 +29,7 @@ const Editprofile = () => {
 
         <div className="flex flex-col justify-center">
           <div className="flex gap-2">
-            <div className="font-rufina font-bold text-black text-[28px]">
+          <div className="font-rufina font-bold text-black dark:text-white text-[28px]">
               Steven Rogers
             </div>
             <Image
@@ -46,16 +46,16 @@ const Editprofile = () => {
           <Button
             variant="solid"
             rounded="pill"
-            className="text-black hover:text-white border-2 border-muted w-full py-4 "
-          >
+            className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
+            >
             Save changes
           </Button>
 
           <Button
             variant="solid"
             rounded="pill"
-            className="text-black hover:text-white border-2 border-muted w-full py-4 px-6"
-          >
+            className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
+            >
             Discard changes
           </Button>
         </div>
@@ -66,7 +66,7 @@ const Editprofile = () => {
         <Button
           variant="solid"
           rounded="pill"
-          className="text-black hover:text-white border-2 border-muted gap-2 py-4 px-6"
+          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
         >
           <UsersIcon width={20} />
           <span className="">My Profile</span>
@@ -74,7 +74,7 @@ const Editprofile = () => {
         <Button
           variant="solid"
           rounded="pill"
-          className="text-black hover:text-white border-2 border-muted gap-2 py-4 px-6"
+          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
         >
           <PencilIcon width={20} />
           <span className="">Edit profile</span>
@@ -82,7 +82,7 @@ const Editprofile = () => {
         <Button
           variant="solid"
           rounded="pill"
-          className="text-black hover:text-white border-2 border-muted gap-2 py-4 px-6"
+          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
         >
           <BellAlertIcon width={20} />
           <span className="">Notification</span>
@@ -91,7 +91,7 @@ const Editprofile = () => {
         <Button
           variant="solid"
           rounded="pill"
-          className="text-black hover:text-white border-2 border-muted gap-2 py-4 px-6"
+          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
         >
           <ArchiveBoxIcon width={20} />
           <span className="">My orders</span>
@@ -100,7 +100,7 @@ const Editprofile = () => {
         <Button
           variant="solid"
           rounded="pill"
-          className="text-black hover:text-white border-2 border-muted gap-2 py-4 px-6"
+          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
         >
           <MapPinIcon width={20} />
           <span className="">Addresses</span>
@@ -109,13 +109,13 @@ const Editprofile = () => {
         <Button
           variant="solid"
           rounded="pill"
-          className="text-black hover:text-white border-2 border-muted gap-2 py-4 px-6"
+          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
         >
           <CogIcon width={20} />
           <span className="">Settings</span>
         </Button>
       </div>
-      <div className="border-t-2 text-muted mt-4"></div>
+      <div className="border-t-2 border-muted dark:border-[#333333] mt-4"></div>
 
       {/* Input sections */}
 
@@ -125,12 +125,14 @@ const Editprofile = () => {
             label="User name"
             placeholder="Enter your name"
             rounded="pill"
+            inputClassName="dark:border-[#333333]"
+
           />
           <Input
             label="Phone number"
             placeholder="Enter your phone number"
             rounded="pill"
-            className=""
+            inputClassName="dark:border-[#333333]"
           />
           <div className="">
             <label htmlFor="gender" className="font-medium text-sm ">
@@ -140,14 +142,14 @@ const Editprofile = () => {
               <Button
                 variant="solid"
                 rounded="pill"
-                className="text-black hover:text-white border-2 border-muted w-full py-4"
+                className="text-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black border-2  border-muted dark:border-[#333333] w-full py-4"
               >
                 Male
               </Button>
               <Button
                 variant="solid"
                 rounded="pill"
-                className="text-black hover:text-white border-2 border-muted w-full py-4"
+                className="text-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black border-2  border-muted dark:border-[#333333] w-full py-4"
               >
                 Female
               </Button>

@@ -1,7 +1,5 @@
 "use client";
-
 import Sidebar from "@/components/Sidebar";
-
 
 export default function ProductsLayout({
   children,
@@ -10,7 +8,7 @@ export default function ProductsLayout({
 }) {
   return (
     <main className="flex">
-      <section className="w-[20%] max-md:w-[50%] bg-white border-muted border-x-2">
+      <section className="w-[20%] max-md:w-[50%] bg-white dark:bg-[#08090e] border-muted dark:border-[#333333] border-x-2">
         {/* Global sidebar */}
         <Sidebar />
       </section>

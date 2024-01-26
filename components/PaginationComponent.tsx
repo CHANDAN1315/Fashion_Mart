@@ -6,8 +6,8 @@ export default function App({dataLength, defaultCurrent}: any) {
       total={dataLength}
       defaultCurrent={defaultCurrent}
       outline={false}
-      color="primary"
       variant="flat"
+      color="primary"
     />
   );
 }
