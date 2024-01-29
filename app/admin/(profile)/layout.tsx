@@ -12,7 +12,7 @@ export default function ProductsLayout({
         {/* Global sidebar */}
         <Sidebar />
       </section>
-      <section className="w-full h-full mx-4 my-2">{children}</section>
+      <section className="w-full h-full ">{children}</section>
     </main>
   );
 }

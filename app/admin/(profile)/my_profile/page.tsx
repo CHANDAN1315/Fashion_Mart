@@ -14,11 +14,11 @@ import {
   TrashIcon,
 } from "@heroicons/react/20/solid";
 
-const Profile = () => {
+const MyProfile = () => {
   return (
     <div className="h-[100vh]">
       {/* User Profile */}
-      <div className="flex  gap-4">
+      <div className="flex gap-4 py-2 px-4">
         <Image
           src="/assets/avatar/memoji.png"
           alt="profile"
@@ -43,7 +43,7 @@ const Profile = () => {
       </div>
 
       {/* Buttons section */}
-      <div className="flex space-x-8  mt-4">
+      <div className="flex space-x-8  mt-4 px-4">
         <Button
           variant="solid"
           rounded="pill"
@@ -190,4 +190,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default MyProfile;

@@ -60,7 +60,7 @@ const Orders = () => {
       key: "checked",
       width: 50,
       render: () => (
-        <div className="inline-flex cursor-pointer">
+        <div className="inline-flex cursor-pointer" >
           <Checkbox variant="flat" className="accent-black dark:accent-white" />
         </div>
       ),
@@ -71,7 +71,7 @@ const Orders = () => {
       key: "order_id",
       width: 150,
       render: (order_id: string) => (
-        <div className="text-foreground pl-2">{order_id}</div>
+        <div className="text-foreground pl-2" >{order_id}</div>
       ),
     },
 

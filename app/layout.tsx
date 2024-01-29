@@ -1,10 +1,10 @@
 // Imports
-import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto, Rufina } from "next/font/google";
 import Footer from "@/components/Footer";
+import Providers  from "@/components/Provider";
 
 // Google fonts configuration
 const rufina = Rufina({
@@ -37,16 +37,16 @@ export default function RootLayout({
       className={`${rufina.variable} ${roboto.variable}`}
       suppressHydrationWarning
     >
-      <ThemeProvider>
-        <body
-          className="max-w-[1440px] mx-auto border-r-2 border-muted"
-          suppressHydrationWarning
-        >
+      <body
+        className="max-w-[1440px] mx-auto border-r-2 border-muted"
+        suppressHydrationWarning
+      >
+        <Providers>
           <Navbar />
           {children}
           <Footer />
-        </body>
-      </ThemeProvider>
+        </Providers>
+      </body>
     </html>
   );
 }

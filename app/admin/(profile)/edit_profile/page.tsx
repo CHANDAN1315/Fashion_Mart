@@ -15,7 +15,7 @@ const Editprofile = () => {
   return (
     <div className="h-[100vh]">
       {/* User Profile */}
-      <div className="flex  items-center gap-4">
+      <div className="flex  items-center gap-4 py-2 px-4">
         <div className="relative">
           <Image
             src="/assets/avatar/memoji.png"
@@ -62,7 +62,7 @@ const Editprofile = () => {
       </div>
 
       {/* Buttons section */}
-      <div className="flex space-x-8  mt-4">
+      <div className="flex space-x-8  mt-4 px-4">
         <Button
           variant="solid"
           rounded="pill"
