@@ -13,9 +13,9 @@ import { Button, Input } from "rizzui";
 
 const Editprofile = () => {
   return (
-    <div className="h-[100vh]">
+    <div className="h-full md:h-[100vh]">
       {/* User Profile */}
-      <div className="flex  items-center gap-4 py-2 px-4">
+      <div className="md:flex items-center justify-center gap-4 py-2 px-4">
         <div className="relative">
           <Image
             src="/assets/avatar/memoji.png"
@@ -42,7 +42,7 @@ const Editprofile = () => {
           <div className="text-foreground">nevaeh.simmons@example.com</div>
           <div className="text-foreground">(316) 555-0116</div>
         </div>
-        <div className="flex w-[30%] ml-auto gap-4">
+        <div className="flex mt-4 md:my-0 ml-auto gap-4">
           <Button
             variant="solid"
             rounded="pill"
@@ -62,7 +62,7 @@ const Editprofile = () => {
       </div>
 
       {/* Buttons section */}
-      <div className="flex space-x-8  mt-4 px-4">
+      <div className="flex overflow-auto space-x-8 mt-4 px-4 ">
         <Button
           variant="solid"
           rounded="pill"
@@ -119,8 +119,8 @@ const Editprofile = () => {
 
       {/* Input sections */}
 
-      <div className="flex">
-        <div className="w-[50%] mt-6 space-y-4 ">
+      <div className="flex-col-1 mb-6 md:mb-0 mx-4 md:flex">
+        <div className="w-full md:w-[50%] mt-6 space-y-4 ">
           <Input
             label="User name"
             placeholder="Enter your name"
@@ -157,7 +157,7 @@ const Editprofile = () => {
           </div>
         </div>
 
-        <div className="w-[50%] mt-6 space-y-4 ml-12">
+        <div className="w-full md:w-[50%] mt-6 space-y-4 md:ml-12 ">
           <Input label="Email" placeholder="Enter your Email" rounded="pill" />
           <Input
             label="Location"

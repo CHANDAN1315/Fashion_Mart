@@ -6,7 +6,7 @@ import { CogIcon, BellAlertIcon } from "@heroicons/react/24/outline";
 
 const Navbar = () => {
   return (
-    <section className=" flex justify-between border-muted dark:border-[#333333] border-y-2 border-l-2 py-1">
+    <section className="w-[100wh] flex justify-between border-muted dark:border-[#333333] border-y-2 border-l-2 py-1">
       <div className="flex items-center space-x-1 ">
         <Image
           src="/assets/logo/Subtract.svg"

@@ -35,11 +35,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${rufina.variable} ${roboto.variable}`}
-      suppressHydrationWarning
     >
       <body
-        className="max-w-[1440px] mx-auto border-r-2 border-muted"
-        suppressHydrationWarning
+        className=""
       >
         <Providers>
           <Navbar />
