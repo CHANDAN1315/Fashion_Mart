@@ -154,7 +154,7 @@ const Orders = () => {
         <div className="w-1 h-1 bg-black rounded-full"></div>
         <div>List</div>
       </div>
-      <div className="flex justify-between mt-2">
+      <div className="flex flex-col md:flex md:flex-row justify-between mt-2 space-y-2">
         <Input
           prefix={<MagnifyingGlassIcon className="w-4" />}
           placeholder="Search"
@@ -163,7 +163,7 @@ const Orders = () => {
 
         {/* Buttons section */}
 
-        <div className="flex space-x-4">
+        <div className="flex flex-col md:flex md:flex-row md:space-x-4 space-y-2 md:space-y-0">
           <Button
             rounded="pill"
             className="bg-white text-black border-gray-200 hover:bg-black hover:text-white dark:bg-black dark:text-white dark:border-[#333333] dark:hover:bg-white dark:hover:text-black space-x-2"
@@ -197,7 +197,7 @@ const Orders = () => {
 
       {/* Pagination */}
 
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex md:flex-row justify-between items-center">
         <div className="flex items-center font-roboto text-foreground space-x-2">
           <div className="">{"Rows Per Page"}</div>
           <DropdownComponent title={"5"} optionData={optionData} />

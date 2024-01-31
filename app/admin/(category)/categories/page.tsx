@@ -135,9 +135,19 @@ const Categories = () => {
     {
       title: <HeaderCell title="Actions" />,
       render: () => (
-        <div className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
-          <EllipsisVerticalIcon width={25} height={25}/>
-        </div>
+        <Dropdown placement="bottom-end">
+          <Dropdown.Trigger>
+            <ActionIcon variant="outline" rounded="full" className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
+              <div className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
+                <EllipsisVerticalIcon width={25} height={25} />
+              </div>
+            </ActionIcon>
+          </Dropdown.Trigger>
+          <Dropdown.Menu className="">
+            <Dropdown.Item>Edit</Dropdown.Item>
+            <Dropdown.Item>Delete</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       ),
     },
   ];
@@ -158,7 +168,7 @@ const Categories = () => {
         <div className="w-1 h-1 bg-black rounded-full"></div>
         <div>Categories</div>
       </div>
-      <div className="flex justify-between mt-2">
+      <div className="flex flex-col md:flex md:flex-row justify-between mt-2 space-y-2">
         <Input
           prefix={<MagnifyingGlassIcon className="w-4" />}
           placeholder="Search"
@@ -167,7 +177,7 @@ const Categories = () => {
 
         {/* Buttons section */}
 
-        <div className="flex space-x-4">
+        <div className="flex flex-col md:flex md:flex-row md:space-x-4 space-y-2 md:space-y-0">
           <Button
             rounded="pill"
             className="bg-white text-black border-gray-200 hover:bg-black hover:text-white dark:bg-black dark:text-white dark:border-[#333333] dark:hover:bg-white dark:hover:text-black space-x-2"
@@ -184,11 +194,12 @@ const Categories = () => {
             <span>Filter</span>
           </Button>
 
-          <Link href={"javascript:void(0)"} onClick={() => setModalState(true)}>
+          <Link href={"javascript:void(0)"} onClick={() => setModalState(true)} className="flex justify-center bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted dark:bg-white dark:text-black dark:border-[#333333] dark:hover:bg-black dark:hover:text-white rounded-full">
+
             <Button
               rounded="pill"
               color="primary"
-              className="bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted dark:bg-white dark:text-black dark:border-[#333333] dark:hover:bg-black dark:hover:text-white"
+              className="space-x-2"
               >
               <PlusIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
               <span>Add Category</span>
@@ -204,7 +215,7 @@ const Categories = () => {
 
       {/* Pagination */}
 
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex md:flex-row justify-between items-center">
         <div className="flex items-center font-roboto text-foreground space-x-2">
           <div className="">{"Rows Per Page"}</div>
           <DropdownComponent title={"5"} optionData={optionData} />

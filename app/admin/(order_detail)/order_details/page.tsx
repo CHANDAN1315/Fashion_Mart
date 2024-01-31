@@ -6,9 +6,9 @@ import { paymentMethods } from "@/data/paymentMethod";
 
 const Orderdetails = () => {
   return (
-    <>
+    <div className="h-full ">
       {/* Heading and edit order  */}
-      <div className="flex justify-between items-center mb-4">
+      <div className="md:flex justify-between items-center mb-4">
         <div>
           <div className="flex items-center text-black dark:text-white font-rufina font-bold text-[24px] gap-2">
             Order
@@ -23,7 +23,7 @@ const Orderdetails = () => {
           </div>
         </div>
 
-        <button className="flex justify-center items-center bg-black text-white hover:bg-white hover:text-black dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white space-x-2 hover:border-muted border-2 py-2 px-4  rounded-full">
+        <button className="w-full md:w-[15%]  py-2 px-4 mt-4 flex justify-center items-center bg-black text-white hover:bg-white hover:text-black dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white space-x-2 hover:border-muted border-2 rounded-full">
           <PencilIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
           <span>Edit Order</span>
         </button>
@@ -40,10 +40,10 @@ const Orderdetails = () => {
         </div>
       </div>
 
-      <div className="flex">
+      <div className="md:flex">
         {/* Order summary section*/}
-        <div className="w-[67%] ">
-          <div className="flex justify-between item-center py-2 px-4 bg-gray-100 dark:bg-[#18181B] rounded-lg">
+        <div className="w-full md:w-[67%] ">
+          <div className="flex justify-between  item-center py-2 px-4 bg-gray-100 dark:bg-[#18181B] rounded-lg">
             <div className="text-foreground font-medium">Products</div>
             <div className="flex gap-24 item-center">
               <span className="text-foreground font-medium">Product price</span>
@@ -60,12 +60,15 @@ const Orderdetails = () => {
                 alt="product_img"
                 width={50}
                 height={50}
+                className="hidden md:block"
               />
-              <div className="text-black dark:text-white font-medium">Denim Jacket</div>
+              <div className="text-black dark:text-white font-medium">
+                Denim Jacket
+              </div>
             </div>
-            <div className="mr-10 pt-4">$295.00</div>
-            <div className="mr-28 pt-4">3</div>
-            <div className="pt-4">$885.00</div>
+            <div className="mr-10 pt-4 ml-4 md:ml-0">$295.00</div>
+            <div className="mr-18 md:mr-28 pt-4">3</div>
+            <div className="pt-4 ml-10 md:ml-0">$885.00</div>
           </div>
 
           {/* Order summary */}
@@ -88,7 +91,9 @@ const Orderdetails = () => {
 
           <div className="flex justify-between item-center py-1 border-t-2 border-muted">
             <span className="font-medium dark:text-white">Total Price:</span>
-            <span className="text-foreground dark:text-white font-bold">$885.00</span>
+            <span className="text-foreground dark:text-white font-bold">
+              $885.00
+            </span>
           </div>
 
           <div className="text-black dark:text-white font-rufina font-bold text-[1.3rem] pt-4">
@@ -111,14 +116,14 @@ const Orderdetails = () => {
                 </div>
                 <div className="flex items-center gap-1">
                   <div className="">{payment.amount}</div>
-                  <Radio className="accent-black "/>
+                  <Radio className="accent-black " />
                 </div>
               </div>
             ))}
         </div>
 
         {/* order status division */}
-        <div className="w-[33%] ml-4 ">
+        <div className="w-full md:w-[33%] md:ml-4 ">
           <div className="text-black dark:text-white font-rufina font-bold text-[1.3rem] pb-2">
             Order status
           </div>
@@ -136,15 +141,15 @@ const Orderdetails = () => {
           <div className="text-black dark:text-white font-rufina font-bold text-[1.3rem] mt-6 mb-4">
             Customer Details
           </div>
-              {/* Customer details */}
-          <div className="flex  items-center gap-4 border-muted border-2 p-4 rounded-lg">
+          {/* Customer details */}
+          <div className="flex flex-wrap overflow-hidden items-center gap-4 border-muted border-2 p-4 rounded-lg">
             <Image
               src="/assets/avatar/user_1.png"
               alt="profile"
               width={70}
               height={70}
             />
-            <div>
+            <div className="">
               <div className="font-bold font-roboto text-black dark:text-white">
                 Steven rogers
               </div>
@@ -155,24 +160,28 @@ const Orderdetails = () => {
             </div>
           </div>
 
-              {/* Shipping Address */}
+          {/* Shipping Address */}
           <div className="text-black dark:text-white font-rufina font-bold text-[1.3rem] mt-4 mb-4">
             Shipping Address
           </div>
           <div className=" border-muted border-2 p-4 rounded-lg">
-            <div className="font-bold font-roboto text-black dark:text-white pb-2">Home</div>
+            <div className="font-bold font-roboto text-black dark:text-white pb-2">
+              Home
+            </div>
             <div className="text-foreground font-roboto">
               Mr John Smith. 132, My Street. US California
             </div>
             <div className="text-foreground font-roboto">(316) 555-0116</div>
           </div>
 
-              {/* Billing address */}
+          {/* Billing address */}
           <div className="text-black dark:text-white font-rufina font-bold text-[1.3rem] mt-4 mb-4">
             Billing Address
           </div>
           <div className=" border-muted border-2 p-4 rounded-lg mb-6">
-            <div className="font-bold font-roboto text-black dark:text-white pb-2">Home</div>
+            <div className="font-bold font-roboto text-black dark:text-white pb-2">
+              Home
+            </div>
             <div className="text-foreground font-roboto">
               Mr John Smith. 132, My Street. US California
             </div>
@@ -180,7 +189,7 @@ const Orderdetails = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -13,12 +13,12 @@ import {
   ArrowRightStartOnRectangleIcon,
   TrashIcon,
 } from "@heroicons/react/20/solid";
-
+import Buttongroup from "@/components/Buttongroup";
 const MyProfile = () => {
   return (
-    <div className="h-[100vh]">
+    <div className="h-full md:h-[100vh]">
       {/* User Profile */}
-      <div className="flex gap-4 py-2 px-4">
+      <div className="md:flex  gap-4 py-2 px-4">
         <Image
           src="/assets/avatar/memoji.png"
           alt="profile"
@@ -43,65 +43,12 @@ const MyProfile = () => {
       </div>
 
       {/* Buttons section */}
-      <div className="flex space-x-8  mt-4 px-4">
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <UsersIcon width={20} />
-          <span className="">My Profile</span>
-        </Button>
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <PencilIcon width={20} />
-          <span className="">Edit profile</span>
-        </Button>
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <BellAlertIcon width={20} />
-          <span className="">Notification</span>
-        </Button>
-
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <ArchiveBoxIcon width={20} />
-          <span className="">My orders</span>
-        </Button>
-
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <MapPinIcon width={20} />
-          <span className="">Addresses</span>
-        </Button>
-
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <CogIcon width={20} />
-          <span className="">Settings</span>
-        </Button>
-      </div>
-      <div className="border-t-2 border-muted dark:border-[#333333] mt-4"></div>
+      <Buttongroup/>
 
       {/* Input sections */}
 
-      <div className="flex">
-        <div className="w-[50%] mt-6 space-y-4 ">
+      <div className="flex-col-1 mb-6 md:mb-0 mx-4 md:flex z-1">
+        <div className="w-full md:w-[50%] mt-6 space-y-4 ">
           <Input
             label="User name"
             placeholder="Enter your name"
@@ -138,7 +85,7 @@ const MyProfile = () => {
               <Button
                 variant="solid"
                 rounded="pill"
-                className="text-red-default border-2 border-muted dark:border-[#333333] py-4 w-[40%] hover:bg-white"
+                className=" text-red-default border-2 border-muted dark:border-[#333333] py-4 w-full md:w-[40%] hover:bg-white"
               >
                 <span>Log out account</span>
                 <ArrowRightStartOnRectangleIcon
@@ -149,7 +96,7 @@ const MyProfile = () => {
               <Button
                 variant="solid"
                 rounded="pill"
-                className="text-red-default border-2 border-muted dark:border-[#333333] py-4 w-[40%] hover:bg-white"
+                className="text-red-default border-2 border-muted dark:border-[#333333] py-4 w-full md:w-[40%] hover:bg-white"
               >
                 <span>Delete account</span>
                 <TrashIcon strokeWidth="2" className="h-4 w-4 ml-2" />
@@ -158,7 +105,7 @@ const MyProfile = () => {
           </div>
         </div>
 
-        <div className="w-[50%] mt-6 space-y-4 ml-12">
+        <div className="w-full md:w-[50%] mt-6 space-y-4 md:ml-12 ">
           <Input
             label="Email"
             placeholder="Enter your Email"
@@ -176,12 +123,21 @@ const MyProfile = () => {
               DOB/Date of birth
             </label>
             <div className="flex gap-4 mt-2">
-              <Input placeholder="day" rounded="pill" inputClassName="dark:border-[#333333]"
-/>
-              <Input placeholder="month" rounded="pill" inputClassName="dark:border-[#333333]"
- />
-              <Input placeholder="year" rounded="pill" inputClassName="dark:border-[#333333]"
- />
+              <Input
+                placeholder="day"
+                rounded="pill"
+                inputClassName="dark:border-[#333333]"
+              />
+              <Input
+                placeholder="month"
+                rounded="pill"
+                inputClassName="dark:border-[#333333]"
+              />
+              <Input
+                placeholder="year"
+                rounded="pill"
+                inputClassName="dark:border-[#333333]"
+              />
             </div>
           </div>
         </div>

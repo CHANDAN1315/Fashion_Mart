@@ -13,12 +13,13 @@ import Image from "next/image";
 import { Button } from "rizzui";
 import { notification } from "@/data/notification";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
+import Buttongroup from "@/components/Buttongroup";
 
 const Notification = () => {
   return (
-    <div className="h-[100vh] ">
+    <div className="h-full md:h-[100vh]">
       {/* User Profile */}
-      <div className="flex gap-4 py-2 px-4">
+      <div className="md:flex  gap-4 py-2 px-4">
         <Image
           src="/assets/avatar/memoji.png"
           alt="profile"
@@ -43,62 +44,9 @@ const Notification = () => {
       </div>
 
       {/* Buttons section */}
-      <div className="flex space-x-8  mt-4 px-4">
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <UsersIcon width={20} />
-          <span className="">My Profile</span>
-        </Button>
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <PencilIcon width={20} />
-          <span className="">Edit profile</span>
-        </Button>
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <BellAlertIcon width={20} />
-          <span className="">Notification</span>
-        </Button>
+      <Buttongroup/>
 
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <ArchiveBoxIcon width={20} />
-          <span className="">My orders</span>
-        </Button>
-
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <MapPinIcon width={20} />
-          <span className="">Addresses</span>
-        </Button>
-
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <CogIcon width={20} />
-          <span className="">Settings</span>
-        </Button>
-      </div>
-      <div className="border-t-2 border-muted dark:border-[#333333] mt-4"></div>
-
-      <div className="m-4">
+      <div className="m-4 h-[55vh] md:h-[70vh] lg:h-[80vh] overflow-y-scroll">
         {notification &&
           notification.map((item) => (
             <>
@@ -110,7 +58,7 @@ const Notification = () => {
                       alt="profile"
                       width={40}
                       height={40}
-                      className="p-2"
+                      className="p-2 hidden md:block"
                     />
                   </div>
                   <div className="">

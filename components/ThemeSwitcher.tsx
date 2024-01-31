@@ -6,24 +6,28 @@ import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
 
 export function ThemeSwitcher() {
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
-  useEffect(()=>{
+  useEffect(() => {
     setMounted(true);
-  },[]);
+  }, []);
 
-  if(!mounted) return null;
-
+  if (!mounted) return null;
 
   return (
     <Dropdown>
-      <Dropdown.Trigger>
+      <Dropdown.Trigger className=" hidden md:block">
         <ActionIcon variant="outline" rounded="full">
           <SunIcon className="h-5 w-5 dark:hidden" />
           <MoonIcon className="absolute h-5 w-5 hidden dark:block" />
           <span className="sr-only">Toggle theme</span>
         </ActionIcon>
+      </Dropdown.Trigger>
+
+      <Dropdown.Trigger className=" md:hidden">
+        <div className="dark:hidden">Dark Mode</div>
+        <div className="hidden dark:block">Light Mode</div>
       </Dropdown.Trigger>
       <Dropdown.Menu>
         <Dropdown.Item onClick={() => setTheme("light")}>Light</Dropdown.Item>

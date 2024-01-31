@@ -10,6 +10,7 @@ import {
   CameraIcon,
 } from "@heroicons/react/24/outline";
 import { Button, Input } from "rizzui";
+import Buttongroup from "@/components/Buttongroup";
 
 const Editprofile = () => {
   return (
@@ -62,60 +63,7 @@ const Editprofile = () => {
       </div>
 
       {/* Buttons section */}
-      <div className="flex overflow-auto space-x-8 mt-4 px-4 ">
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <UsersIcon width={20} />
-          <span className="">My Profile</span>
-        </Button>
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <PencilIcon width={20} />
-          <span className="">Edit profile</span>
-        </Button>
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <BellAlertIcon width={20} />
-          <span className="">Notification</span>
-        </Button>
-
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <ArchiveBoxIcon width={20} />
-          <span className="">My orders</span>
-        </Button>
-
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <MapPinIcon width={20} />
-          <span className="">Addresses</span>
-        </Button>
-
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <CogIcon width={20} />
-          <span className="">Settings</span>
-        </Button>
-      </div>
-      <div className="border-t-2 border-muted dark:border-[#333333] mt-4"></div>
+      <Buttongroup/>
 
       {/* Input sections */}
 
