@@ -23,7 +23,7 @@ const SignIn = () => {
   // Returning
   return (
     <>
-    <div className="h-full md:h-[100vh] flex flex-col md:flex-row my-4 md:my-0">
+      <div className=" md:h-[100%] flex flex-col md:flex-row my-4 md:my-0">
         <div className="w-1/2 max-md:w-full h-full flex flex-col bg-white justify-center">
           <div className="px-12">
             {/* Heading */}
@@ -65,7 +65,11 @@ const SignIn = () => {
             </div>
 
             {/* Button */}
-            <Button rounded="pill" size="xl" className="w-full bg-white text-black border-gray-200 hover:bg-black hover:text-white dark:bg-black dark:text-white dark:border-[#333333] dark:hover:bg-white dark:hover:text-black space-x-2">
+            <Button
+              rounded="pill"
+              size="xl"
+              className="w-full bg-black space-x-2 md:mb-4"
+            >
               Sign in
             </Button>
           </div>
@@ -106,7 +110,9 @@ const SignIn = () => {
               <div className="text-black font-rufina font-bold text-3xl">
                 Recover password.
               </div>
-              <div className="text-sm text-foreground">Enter your email to recover your password.</div>
+              <div className="text-sm text-foreground">
+                Enter your email to recover your password.
+              </div>
             </div>
             <ActionIcon
               size="sm"

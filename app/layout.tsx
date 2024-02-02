@@ -37,9 +37,7 @@ export default function RootLayout({
       lang="en"
       className={`${rufina.variable} ${roboto.variable}`}
     >
-      <body
-        className=""
-      >
+      <body className="">
         <Providers>
           <Navbar />
           {children}

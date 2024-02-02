@@ -1,25 +1,15 @@
 "use client";
 
-import {
-  ArchiveBoxIcon,
-  BellAlertIcon,
-  CameraIcon,
-  CogIcon,
-  MapPinIcon,
-  PencilIcon,
-  UsersIcon,
-} from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { Button } from "rizzui";
 import { notification } from "@/data/notification";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import Buttongroup from "@/components/Buttongroup";
 
 const Notification = () => {
   return (
-    <div className="h-full md:h-[100vh]">
+    <div className="h-full md:h-[100vh] w-full md:w-[70vw] lg:w-[75vw] overflow-y-scroll no-scrollbar scroll">
       {/* User Profile */}
-      <div className="md:flex  gap-4 py-2 px-4">
+      <div className="md:flex items-center  gap-4 py-2 px-4">
         <Image
           src="/assets/avatar/memoji.png"
           alt="profile"
@@ -44,40 +34,41 @@ const Notification = () => {
       </div>
 
       {/* Buttons section */}
-      <Buttongroup/>
+      <Buttongroup />
 
-      <div className="m-4 h-[55vh] md:h-[70vh] lg:h-[80vh] overflow-y-scroll">
+      <div className="m-4 h-[55vh] md:h-[70vh] lg:h-[80vh] overflow-y-scroll no-scrollbar">
         {notification &&
           notification.map((item) => (
             <>
-              <div className="flex justify-between items-center my-6" key={item.id}>
+              <div
+                className="flex justify-between items-center my-6"
+                key={item.id}
+              >
                 <div className="flex space-x-3">
-                  <div className="bg-muted rounded-full">
+                  <div className="flex items-center ">
                     <Image
                       src={item.img}
                       alt="profile"
                       width={40}
                       height={40}
-                      className="p-2 hidden md:block"
+                      className="p-2 hidden md:block bg-muted rounded-full"
                     />
                   </div>
                   <div className="">
-                    <div className="font-medium">{item.title}</div>
+                    <div className="font-medium text-base">{item.title}</div>
                     <div className="text-sm text-foreground font-poppins">
                       {item.discription}
                     </div>
                   </div>
                 </div>
 
-                <div className="flex justify-center items-center space-x-3">
+                <div className="flex justify-center items-center space-x-1 md:space-x-3 ">
                   <div className="font-medium text-sm">{item.duration}</div>
-                  <div className="bg-muted rounded-full">
-                    <EllipsisVerticalIcon
-                      className="p-2"
-                      width={40}
-                      height={40}
-                    />
-                  </div>
+                  <EllipsisVerticalIcon
+                    className="p-1 sm:p-2 w-8 md:w-10 h-8 md:h-10 bg-muted rounded-full "
+                    width={0}
+                    height={0}
+                  />
                 </div>
               </div>
               <div className="border-t-2 border-muted  mt-4"></div>

@@ -92,5 +92,9 @@ module.exports = {
       },
     },
   },
+  fontSize: {
+    smbtn: "14px",
+    xsbtn: "12px",
+  },
   plugins: [],
 };

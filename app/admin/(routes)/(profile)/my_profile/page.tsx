@@ -1,13 +1,6 @@
 "use client";
 import Image from "next/image";
-import {
-  UsersIcon,
-  PencilIcon,
-  BellAlertIcon,
-  ArchiveBoxIcon,
-  MapPinIcon,
-  CogIcon,
-} from "@heroicons/react/24/outline";
+
 import { Button, Input } from "rizzui";
 import {
   ArrowRightStartOnRectangleIcon,
@@ -16,9 +9,9 @@ import {
 import Buttongroup from "@/components/Buttongroup";
 const MyProfile = () => {
   return (
-    <div className="h-full md:h-[100vh]">
+    <div className="h-full md:h-[100vh] w-full md:w-[70vw] lg:w-[75vw] overflow-y-scroll no-scrollbar scroll">
       {/* User Profile */}
-      <div className="md:flex  gap-4 py-2 px-4">
+      <div className="md:flex items-center  gap-4 py-2 px-4">
         <Image
           src="/assets/avatar/memoji.png"
           alt="profile"
@@ -43,12 +36,12 @@ const MyProfile = () => {
       </div>
 
       {/* Buttons section */}
-      <Buttongroup/>
+      <Buttongroup />
 
       {/* Input sections */}
 
-      <div className="flex-col-1 mb-6 md:mb-0 mx-4 md:flex z-1">
-        <div className="w-full md:w-[50%] mt-6 space-y-4 ">
+      <div className="flex-col-1 mb-6 lg:mb-0 mx-4 lg:flex">
+        <div className="w-full xl:w-[50%] mt-6 space-y-4 ">
           <Input
             label="User name"
             placeholder="Enter your name"
@@ -69,14 +62,14 @@ const MyProfile = () => {
               <Button
                 variant="solid"
                 rounded="pill"
-                className="text-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black border-2  border-muted dark:border-[#333333] w-full py-4"
+                className="w-full py-4 text-xs md:text-sm  text-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black border-2  border-muted dark:border-[#333333] "
               >
                 Male
               </Button>
               <Button
                 variant="solid"
                 rounded="pill"
-                className="text-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black border-2  border-muted dark:border-[#333333] w-full py-4"
+                className="w-full py-4 text-xs md:text-sm  text-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black border-2  border-muted dark:border-[#333333]"
               >
                 Female
               </Button>
@@ -85,18 +78,18 @@ const MyProfile = () => {
               <Button
                 variant="solid"
                 rounded="pill"
-                className=" text-red-default border-2 border-muted dark:border-[#333333] py-4 w-full md:w-[40%] hover:bg-white"
+                className=" text-red-default border-2 text-[10px] xs:text-xs md:text-sm  border-muted dark:border-[#333333] py-4 w-full md:w-[40%] hover:bg-white"
               >
                 <span>Log out account</span>
                 <ArrowRightStartOnRectangleIcon
                   strokeWidth="2"
-                  className="h-4 w-4 ml-2"
+                  className="h-4 w-4 ml-2 "
                 />
               </Button>
               <Button
                 variant="solid"
                 rounded="pill"
-                className="text-red-default border-2 border-muted dark:border-[#333333] py-4 w-full md:w-[40%] hover:bg-white"
+                className="text-red-default border-2 text-[10px] xs:text-xs md:text-sm  border-muted dark:border-[#333333] py-4 w-full md:w-[40%] hover:bg-white"
               >
                 <span>Delete account</span>
                 <TrashIcon strokeWidth="2" className="h-4 w-4 ml-2" />
@@ -105,7 +98,7 @@ const MyProfile = () => {
           </div>
         </div>
 
-        <div className="w-full md:w-[50%] mt-6 space-y-4 md:ml-12 ">
+        <div className="w-full xl:w-[50%] mt-6 space-y-4 lg:ml-12 ">
           <Input
             label="Email"
             placeholder="Enter your Email"

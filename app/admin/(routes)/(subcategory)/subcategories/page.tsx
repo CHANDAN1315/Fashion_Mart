@@ -276,7 +276,7 @@ const Subcategories = () => {
             <div className="text-foreground">No file Choosen</div>
           </div>
 
-          <div className="flex items-center space-x-8 my-4 ml-2 ">
+          <div className="flex flex-col md:flex md:flex-row md:space-x-8 space-y-2 md:space-y-0 my-4 md:ml-2 ml-20 ">
             <Radio label="Published" className="accent-black" />
             <Radio label="Pending" className="accent-black" />
             <Radio label="Draft" className="accent-black" />
