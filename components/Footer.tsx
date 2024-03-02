@@ -1,7 +1,7 @@
 "use client"
 const Footer = () => {
   return (
-    <section className="bg-white text-xs sm:text-sm  md:flex justify-between items-center p-4 border-muted dark:border-[#333333] border-y-2 border-l-2">
+    <section className="bg-white text-xs sm:text-sm  md:flex justify-between items-center p-4 border-muted dark:border-[#333333] border-y-2 border-x-2">
       {/* Copyright */}
       <div className="flex flex-wrap font-Poppins text-foreground">
         Copyright 2023 <span className="font-medium dark:text-white px-2">Fashion Mart</span> All

@@ -215,7 +215,7 @@ const Categories = () => {
 
       {/* Pagination */}
 
-      <div className="flex flex-col md:flex md:flex-row justify-between items-center">
+      <div className="flex flex-col-reverse md:flex md:flex-row justify-between items-center">
         <div className="flex items-center font-roboto text-foreground space-x-2">
           <div className="">{"Rows Per Page"}</div>
           <DropdownComponent title={"5"} optionData={optionData} />

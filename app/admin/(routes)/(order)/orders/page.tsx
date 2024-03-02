@@ -60,7 +60,7 @@ const Orders = () => {
       key: "checked",
       width: 50,
       render: () => (
-        <div className="inline-flex cursor-pointer" >
+        <div className="inline-flex cursor-pointer">
           <Checkbox variant="flat" className="accent-black dark:accent-white" />
         </div>
       ),
@@ -71,7 +71,7 @@ const Orders = () => {
       key: "order_id",
       width: 150,
       render: (order_id: string) => (
-        <div className="text-foreground pl-2" >{order_id}</div>
+        <div className="text-foreground pl-2">{order_id}</div>
       ),
     },
 
@@ -82,7 +82,13 @@ const Orders = () => {
       width: 300,
       render: (customer: any) => (
         <div className="flex items-center">
-          <Avatar src={customer.image} name={`image`} rounded="md" color="primary" className="bg-muted"/>
+          <Avatar
+            src={customer.image}
+            name={`image`}
+            rounded="md"
+            color="primary"
+            className="bg-muted max-lg:hidden"
+          />
           <div className="ml-3 rtl:ml-0 rtl:mr-3">
             <Text className="mb-0.5 !text-sm font-roboto font-bold">
               {customer.name}
@@ -100,7 +106,9 @@ const Orders = () => {
       dataIndex: "items",
       key: "items",
       width: 150,
-      render: (items: number) => <div className="text-foreground pl-4">{items}</div>,
+      render: (items: number) => (
+        <div className="text-foreground pl-4">{items}</div>
+      ),
     },
 
     {
@@ -110,7 +118,7 @@ const Orders = () => {
       width: 250,
       render: (created: any) => (
         <div className=" rtl:ml-0 rtl:mr-3">
-          <Text className="mb-0.5 !text-sm font-roboto font-medium">
+          <Text className="mb-0.5 text-[14px] text-nowrap font-roboto font-medium">
             {created.date}
           </Text>
           <Text as="p" className="text-xs text-foreground">
@@ -130,7 +138,7 @@ const Orders = () => {
       title: <HeaderCell title="Actions" />,
       render: () => (
         <div className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
-          <EllipsisVerticalIcon width={25} height={25}/>
+          <EllipsisVerticalIcon width={25} height={25} />
         </div>
       ),
     },
@@ -197,7 +205,7 @@ const Orders = () => {
 
       {/* Pagination */}
 
-      <div className="flex flex-col md:flex md:flex-row justify-between items-center">
+      <div className="flex flex-col-reverse md:flex md:flex-row justify-between items-center">
         <div className="flex items-center font-roboto text-foreground space-x-2">
           <div className="">{"Rows Per Page"}</div>
           <DropdownComponent title={"5"} optionData={optionData} />

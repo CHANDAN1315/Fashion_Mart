@@ -7,7 +7,7 @@ import Buttongroup from "@/components/Buttongroup";
 const Editprofile = () => {
   return (
     <>
-      <div className="h-full md:h-[100vh] w-full md:w-[70vw] lg:w-[75vw] overflow-y-scroll no-scrollbar scroll">
+      <div className="h-full md:h-[100vh] w-full md:w-[70vw] lg:w-[78vw] overflow-y-scroll no-scrollbar scroll">
         {/* User Profile */}
         <div className="md:flex items-center justify-center gap-4 py-2 px-4">
           <div className="relative">
@@ -40,7 +40,7 @@ const Editprofile = () => {
             <Button
               variant="solid"
               rounded="pill"
-              className="gap-2 py-4 w-36 text-xs sm:text-sm  px-6 text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] "
+              className="gap-2 py-6 w-36 text-xs sm:text-sm  px-6 text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] "
             >
               Save changes
             </Button>
@@ -48,7 +48,7 @@ const Editprofile = () => {
             <Button
               variant="solid"
               rounded="pill"
-              className="gap-2 py-4 px-6 w-40 text-xs sm:text-sm text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] "
+              className="gap-2 py-6 px-6 w-40 text-xs sm:text-sm text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] "
             >
               Discard changes
             </Button>
@@ -57,6 +57,7 @@ const Editprofile = () => {
 
         {/* Buttons section */}
         <Buttongroup />
+        <div className="border-t-2 border-muted dark:border-[#333333] mt-4"></div>
 
         {/* Input sections */}
 

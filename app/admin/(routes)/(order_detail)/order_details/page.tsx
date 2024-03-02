@@ -24,8 +24,8 @@ const Orderdetails = () => {
         </div>
 
         <button className="w-full md:w-[15%]  py-2 px-4 mt-4 flex justify-center items-center bg-black text-white hover:bg-white hover:text-black dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white space-x-2 hover:border-muted border-2 rounded-full">
-          <PencilIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
-          <span>Edit Order</span>
+          <PencilIcon strokeWidth="2" className="h-4 w-4 space-x-4" />
+          <span className="text-nowrap">Edit Order</span>
         </button>
       </div>
 

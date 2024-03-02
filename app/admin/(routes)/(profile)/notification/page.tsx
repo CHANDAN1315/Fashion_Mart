@@ -2,12 +2,41 @@
 
 import Image from "next/image";
 import { notification } from "@/data/notification";
-import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
+import {
+  EllipsisVerticalIcon,
+  TrashIcon,
+  BookmarkIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import Buttongroup from "@/components/Buttongroup";
+import { Dropdown } from "rizzui";
+import { useEffect, useRef, useState } from "react";
 
 const Notification = () => {
+  const [clicked, setClicked] = useState<Number>(0);
+
+  const domNode = useRef(null);
+
+  const toggleClick = (id: Number) => {
+    if (clicked === id) return setClicked(0);
+    setClicked(id);
+  };
+
+  // useEffect(() => {
+  //   let handler = (event: any) => {
+  //     if (!domNode.current?.contains(event.target)) {
+  //       setClicked(0);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", handler);
+
+  //   return () => {
+  //     document.removeEventListener("mousedown", handler);
+  //   };
+  // },[]);
+
   return (
-    <div className="h-full md:h-[100vh] w-full md:w-[70vw] lg:w-[75vw] overflow-y-scroll no-scrollbar scroll">
+    <div className="h-full md:h-[100vh] w-full md:w-[70vw] lg:w-[78vw] overflow-y-scroll no-scrollbar scroll">
       {/* User Profile */}
       <div className="md:flex items-center  gap-4 py-2 px-4">
         <Image
@@ -35,6 +64,7 @@ const Notification = () => {
 
       {/* Buttons section */}
       <Buttongroup />
+      <div className="border-t-2 border-muted dark:border-[#333333] mt-4"></div>
 
       <div className="m-4 h-[55vh] md:h-[70vh] lg:h-[80vh] overflow-y-scroll no-scrollbar">
         {notification &&
@@ -62,16 +92,47 @@ const Notification = () => {
                   </div>
                 </div>
 
-                <div className="flex justify-center items-center space-x-1 md:space-x-3 ">
+                <div
+                  className="flex justify-center items-center space-x-1 md:space-x-3 "
+                >
                   <div className="font-medium text-sm">{item.duration}</div>
-                  <EllipsisVerticalIcon
-                    className="p-1 sm:p-2 w-8 md:w-10 h-8 md:h-10 bg-muted rounded-full "
-                    width={0}
-                    height={0}
-                  />
+                  <Dropdown placement="bottom-end">
+                    <Dropdown.Trigger ref={domNode}>
+                      {clicked === item.id ? (
+                        <XMarkIcon
+                          className="p-1 sm:p-2 w-8 md:w-10 h-8 md:h-10 bg-muted hover:bg-gray-300 rounded-full cursor-pointer "
+                          width={0}
+                          height={0}
+                          onClick={() => toggleClick(item.id)}
+                        />
+                      ) : (
+                        <EllipsisVerticalIcon
+                          className="p-1 sm:p-2 w-8 md:w-10 h-8 md:h-10 bg-muted hover:bg-gray-300 rounded-full cursor-pointer "
+                          width={0}
+                          height={0}
+                          onClick={() => toggleClick(item.id)}
+                        />
+                      )}
+                    </Dropdown.Trigger>
+                    <Dropdown.Menu className="">
+                      <Dropdown.Item className="space-x-1">
+                        <TrashIcon width={20} height={20} />
+                        <div className=" text-foreground font-poppins">
+                          Delete notification
+                        </div>
+                      </Dropdown.Item>
+                      <div className="border-t-2 border-muted w-full my-2 px-4"></div>
+                      <Dropdown.Item className="space-x-1">
+                        <BookmarkIcon width={20} height={20} />
+                        <span className="text-foreground font-poppins">
+                          Book mark
+                        </span>
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </div>
               </div>
-              <div className="border-t-2 border-muted  mt-4"></div>
+              <div className="border-t-2 border-muted mt-4"></div>
             </>
           ))}
       </div>

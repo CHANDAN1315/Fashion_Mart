@@ -1,7 +1,15 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { Checkbox, Avatar, Text, Dropdown, Button, Input, ActionIcon } from "rizzui";
+import { useState, useMemo, useRef } from "react";
+import {
+  Checkbox,
+  Avatar,
+  Text,
+  Dropdown,
+  Button,
+  Input,
+  ActionIcon,
+} from "rizzui";
 import Table from "@/components/Table";
 import HeaderCell from "@/components/TableHeader";
 import { products } from "@/data/products";
@@ -11,6 +19,9 @@ import {
   FunnelIcon,
   PlusIcon,
   EllipsisVerticalIcon,
+  XMarkIcon,
+  TrashIcon,
+  BookmarkIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import PaginationComponent from "@/components/PaginationComponent";
@@ -20,30 +31,38 @@ const Products = () => {
   const [order, setOrder] = useState<string>("desc");
   const [column, setColumn] = useState<string>("");
   const [data, setData] = useState<typeof products>(products);
-
+  const [clicked, setClicked] = useState<number>(0);
   const dataLength = 50;
   const currentPage = 1;
   const optionData = [1, 2, 3, 4, 5];
+  const domNode = useRef(null);
+
+  const toggleClick = (id: number) => {
+    console.log(id)
+    if (clicked === id) setClicked(0);
+    else setClicked(id);
+    console.log(clicked)
+  };
 
   function getStatusBadge(status: string) {
     switch (status.toLowerCase()) {
       case "published":
         return (
-          <div className="flex items-center text-green-default gap-1 font-medium">
+          <div className="flex items-center text-sm text-nowrap text-green-default gap-1 font-medium">
             <div className="w-1 h-1 bg-green-default rounded-full"></div>
             {status}
           </div>
         );
       case "pending":
         return (
-          <div className="flex items-center text-orange-default gap-1 font-medium">
+          <div className="flex items-center text-sm text-nowrap text-orange-default gap-1 font-medium">
             <div className="w-1 h-1 bg-orange-default rounded-full"></div>
             {status}
           </div>
         );
       case "draft":
         return (
-          <div className="flex items-center text-red-default gap-1 font-medium">
+          <div className="flex items-center text-sm text-nowrap text-red-default gap-1 font-medium">
             <div className="w-1 h-1 bg-red-default rounded-full"></div>
             {status}
           </div>
@@ -73,12 +92,17 @@ const Products = () => {
       width: 350,
       render: (product: any) => (
         <div className="flex items-center">
-          <Avatar src={product.image} name={`image`} rounded="md" />
+          <Avatar
+            src={product.image}
+            name={`image`}
+            rounded="md"
+            className="hidden md:block"
+          />
           <div className="ml-3 rtl:ml-0 rtl:mr-3">
-            <Text className="mb-0.5 !text-sm font-roboto font-bold">
+            <Text className="mb-0.5 text-sm text-nowrap font-roboto font-bold">
               {product.title}
             </Text>
-            <Text as="p" className="text-xs text-foreground">
+            <Text as="p" className="text-sm text-nowrap text-foreground">
               {product.category}
             </Text>
           </div>
@@ -90,14 +114,18 @@ const Products = () => {
       dataIndex: "sku",
       key: "sku",
       width: 250,
-      render: (sku: string) => <div className="text-foreground">{sku}</div>,
+      render: (sku: string) => (
+        <div className="text-sm text-nowrap text-foreground">{sku}</div>
+      ),
     },
     {
       title: <HeaderCell title="Price" />,
       dataIndex: "price",
       key: "price",
       width: 200,
-      render: (price: string) => <div className="text-foreground">{price}</div>,
+      render: (price: string) => (
+        <div className="text-sm text-nowrap text-foreground">{price}</div>
+      ),
     },
     {
       title: <HeaderCell title="Stock" />,
@@ -106,10 +134,16 @@ const Products = () => {
       width: 200,
       render: (active: boolean) => {
         if (active) {
-          return <div className="text-green-default font-medium">In Stock</div>;
+          return (
+            <div className="text-sm text-nowrap text-green-default font-medium">
+              In Stock
+            </div>
+          );
         } else {
           return (
-            <div className="text-red-default font-medium">Out of Stock</div>
+            <div className="text-sm text-nowrap text-red-default font-medium">
+              Out of Stock
+            </div>
           );
         }
       },
@@ -124,20 +158,42 @@ const Products = () => {
     },
     {
       title: <HeaderCell title="Actions" />,
-      render: () => (
-        <Dropdown placement="bottom-end">
-          <Dropdown.Trigger>
-            <ActionIcon variant="outline" rounded="full" className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
-              <div className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
-                <EllipsisVerticalIcon width={25} height={25} />
-              </div>
-            </ActionIcon>
-          </Dropdown.Trigger>
-          <Dropdown.Menu className="">
-            <Dropdown.Item>Edit</Dropdown.Item>
-            <Dropdown.Item>Delete</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+      dataIndex: "id",
+      key:"id",
+      render: (id : number) => (
+          <Dropdown placement="bottom-end">
+            <Dropdown.Trigger ref={domNode}>
+              {clicked === id ? (
+                <XMarkIcon
+                  className="p-1 sm:p-2 w-8 md:w-10 h-8 md:h-10 bg-muted hover:bg-gray-300 rounded-full cursor-pointer "
+                  width={0}
+                  height={0}
+                  onClick={() => toggleClick(id)}
+                />
+              ) : (
+                <EllipsisVerticalIcon
+                  className="p-1 sm:p-2 w-8 md:w-10 h-8 md:h-10 bg-muted hover:bg-gray-300 rounded-full cursor-pointer "
+                  width={0}
+                  height={0}
+                  onClick={() => toggleClick(id)}
+                />
+              )}
+            </Dropdown.Trigger>
+            <Dropdown.Menu className="">
+              <Dropdown.Item className="space-x-1">
+                <TrashIcon width={20} height={20} />
+                <div className=" text-foreground font-poppins">
+                  Delete notification
+                </div>
+              </Dropdown.Item>
+              <div className="border-t-2 border-muted w-full my-2 px-4"></div>
+              <Dropdown.Item className="space-x-1">
+                <BookmarkIcon width={20} height={20} />
+                <span className="text-foreground font-poppins">Book mark</span>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+
       ),
     },
   ];
@@ -200,7 +256,7 @@ const Products = () => {
 
       {/* Pagination */}
 
-      <div className="flex flex-col md:flex md:flex-row justify-between items-center">
+      <div className="flex flex-col-reverse md:flex md:flex-row justify-between items-center">
         <div className="flex items-center font-roboto text-foreground space-x-2">
           <div className="">{"Rows Per Page"}</div>
           <DropdownComponent title={"5"} optionData={optionData} />

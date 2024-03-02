@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { Roboto, Rufina } from "next/font/google";
 import Footer from "@/components/Footer";
 import Providers  from "@/components/Provider";
-
+import { SidebarProvider } from "@/functions/context"
 // Google fonts configuration
 const rufina = Rufina({
   subsets: ["latin"],
@@ -37,11 +37,13 @@ export default function RootLayout({
       lang="en"
       className={`${rufina.variable} ${roboto.variable}`}
     >
-      <body className="">
+      <body className="max-w-[2000px] max-h-full mx-auto">
         <Providers>
-          <Navbar />
-          {children}
-          <Footer />
+          <SidebarProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </SidebarProvider>
         </Providers>
       </body>
     </html>

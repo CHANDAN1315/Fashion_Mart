@@ -13,7 +13,7 @@ import { Button } from "rizzui";
 const Buttongroup = () => {
   return (
     <div className="">
-      <div className="flex  overflow-scroll no-scrollbar space-x-8 mt-4 px-4 ">
+      <div className="flex overflow-scroll no-scrollbar space-x-6 mt-4 px-4 ">
         <Link href="http://localhost:3000/admin/my_profile">
           <Button
             variant="solid"
@@ -72,7 +72,6 @@ const Buttongroup = () => {
           <span className="w-20">Settings</span>
         </Button>
       </div>
-      <div className="border-t-2 border-muted dark:border-[#333333] mt-4"></div>
     </div>
   );
 };

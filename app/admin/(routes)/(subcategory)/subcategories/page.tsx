@@ -145,7 +145,11 @@ const Subcategories = () => {
       render: () => (
         <Dropdown placement="bottom-end">
           <Dropdown.Trigger>
-            <ActionIcon variant="outline" rounded="full" className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
+            <ActionIcon
+              variant="outline"
+              rounded="full"
+              className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full"
+            >
               <div className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
                 <EllipsisVerticalIcon width={25} height={25} />
               </div>
@@ -202,13 +206,12 @@ const Subcategories = () => {
             <span>Filter</span>
           </Button>
 
-          <Link href={"javascript:void(0)"} onClick={() => setModalState(true)} className="flex justify-center bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted dark:bg-white dark:text-black dark:border-[#333333] dark:hover:bg-black dark:hover:text-white rounded-full">
-            
-            <Button
-              rounded="pill"
-              color="primary"
-              className="space-x-2"
-              >
+          <Link
+            href={"javascript:void(0)"}
+            onClick={() => setModalState(true)}
+            className="flex justify-center bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted dark:bg-white dark:text-black dark:border-[#333333] dark:hover:bg-black dark:hover:text-white rounded-full"
+          >
+            <Button rounded="pill" color="primary" className="space-x-2">
               <PlusIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
               <span>Add subcategories</span>
             </Button>
@@ -222,7 +225,7 @@ const Subcategories = () => {
 
       {/* Pagination */}
 
-      <div className="flex flex-col md:flex md:flex-row justify-between items-center">
+      <div className="flex flex-col-reverse md:flex md:flex-row justify-between items-center">
         <div className="flex items-center font-roboto text-foreground space-x-2">
           <div className="">{"Rows Per Page"}</div>
           <DropdownComponent title={"5"} optionData={optionData} />

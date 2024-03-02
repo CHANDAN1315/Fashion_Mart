@@ -9,8 +9,10 @@ import {
 import Buttongroup from "@/components/Buttongroup";
 const MyProfile = () => {
   return (
-    <div className="h-full md:h-[100vh] w-full md:w-[70vw] lg:w-[75vw] overflow-y-scroll no-scrollbar scroll">
+    
+    <div className="h-full md:h-[100vh] w-full md:w-[70vw] lg:w-[78vw] overflow-y-scroll no-scrollbar ">
       {/* User Profile */}
+
       <div className="md:flex items-center  gap-4 py-2 px-4">
         <Image
           src="/assets/avatar/memoji.png"
@@ -37,7 +39,7 @@ const MyProfile = () => {
 
       {/* Buttons section */}
       <Buttongroup />
-
+      <div className="border-t-2 border-muted dark:border-[#333333] mt-4"></div>
       {/* Input sections */}
 
       <div className="flex-col-1 mb-6 lg:mb-0 mx-4 lg:flex">
