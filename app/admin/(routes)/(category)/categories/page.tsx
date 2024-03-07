@@ -23,6 +23,8 @@ import {
   FunnelIcon,
   PlusIcon,
   EllipsisVerticalIcon,
+  TrashIcon,
+  BookmarkIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import PaginationComponent from "@/components/PaginationComponent";
@@ -137,15 +139,20 @@ const Categories = () => {
       render: () => (
         <Dropdown placement="bottom-end">
           <Dropdown.Trigger>
-            <ActionIcon variant="outline" rounded="full" className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
-              <div className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
-                <EllipsisVerticalIcon width={25} height={25} />
-              </div>
-            </ActionIcon>
+            <button className=" flex justify-center items-center w-10 h-10 bg-gray-100 hover:bg-muted dark:bg-[#333333] rounded-full">
+              <EllipsisVerticalIcon width={25} height={25} />
+            </button>
           </Dropdown.Trigger>
-          <Dropdown.Menu className="">
-            <Dropdown.Item>Edit</Dropdown.Item>
-            <Dropdown.Item>Delete</Dropdown.Item>
+          <Dropdown.Menu className="mr-12 ">
+            <div className="flex justify-center items-center">
+              <TrashIcon width={25} height={25} />
+              <Dropdown.Item>Delete Notification</Dropdown.Item>
+            </div>
+            <div className="border-t-2 border-muted my-2"></div>
+            <div className="flex justify-center items-center">
+              <BookmarkIcon width={25} height={25} />
+              <Dropdown.Item>Bookmark</Dropdown.Item>
+            </div>
           </Dropdown.Menu>
         </Dropdown>
       ),
@@ -194,18 +201,16 @@ const Categories = () => {
             <span>Filter</span>
           </Button>
 
-          <Link href={"javascript:void(0)"} onClick={() => setModalState(true)} className="flex justify-center bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted dark:bg-white dark:text-black dark:border-[#333333] dark:hover:bg-black dark:hover:text-white rounded-full">
-
-            <Button
-              rounded="pill"
-              color="primary"
-              className="space-x-2"
-              >
+          <Link
+            href={"javascript:void(0)"}
+            onClick={() => setModalState(true)}
+            className="flex justify-center bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted dark:bg-white dark:text-black dark:border-[#333333] dark:hover:bg-black dark:hover:text-white rounded-full"
+          >
+            <Button rounded="pill" color="primary" className="space-x-2">
               <PlusIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
               <span>Add Category</span>
             </Button>
           </Link>
-          
         </div>
       </div>
 
@@ -281,7 +286,10 @@ const Categories = () => {
             rounded="pill"
             size="lg"
             onClick={() => setModalState(false)}
-          > Submit</Button>
+          >
+            {" "}
+            Submit
+          </Button>
         </div>
       </Modal>
     </>

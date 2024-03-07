@@ -4,36 +4,29 @@ import Image from "next/image";
 import { notification } from "@/data/notification";
 import {
   EllipsisVerticalIcon,
-  TrashIcon,
-  BookmarkIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import Buttongroup from "@/components/Buttongroup";
-import { Dropdown } from "rizzui";
 import { useEffect, useRef, useState } from "react";
+import ThreeDotCard from "@/components/ThreeDotCard";
 
 const Notification = () => {
   const [clicked, setClicked] = useState<Number>(0);
 
   const domNode = useRef(null);
 
-  const toggleClick = (id: Number) => {
-    if (clicked === id) return setClicked(0);
-    setClicked(id);
-  };
+  useEffect(() => {
+    let handler = (event: any) => { 
+      if (!domNode.current?.contains(event.target)) {
+        setClicked(0);
+      }
+    };
+    document.addEventListener("click", handler);
 
-  // useEffect(() => {
-  //   let handler = (event: any) => {
-  //     if (!domNode.current?.contains(event.target)) {
-  //       setClicked(0);
-  //     }
-  //   };
-  //   document.addEventListener("mousedown", handler);
-
-  //   return () => {
-  //     document.removeEventListener("mousedown", handler);
-  //   };
-  // },[]);
+    return () => {
+      document.removeEventListener("click", handler);
+    };
+  });
 
   return (
     <div className="h-full md:h-[100vh] w-full md:w-[70vw] lg:w-[78vw] overflow-y-scroll no-scrollbar scroll">
@@ -85,51 +78,33 @@ const Notification = () => {
                     />
                   </div>
                   <div className="">
-                    <div className="font-medium text-base">{item.title}</div>
-                    <div className="text-sm text-foreground font-poppins">
+                    <div className="font-medium text-sm sm:text-base">{item.title}</div>
+                    <div className="text-xs sm:text-sm text-foreground font-poppins">
                       {item.discription}
                     </div>
                   </div>
                 </div>
 
-                <div
-                  className="flex justify-center items-center space-x-1 md:space-x-3 "
-                >
-                  <div className="font-medium text-sm">{item.duration}</div>
-                  <Dropdown placement="bottom-end">
-                    <Dropdown.Trigger ref={domNode}>
-                      {clicked === item.id ? (
-                        <XMarkIcon
-                          className="p-1 sm:p-2 w-8 md:w-10 h-8 md:h-10 bg-muted hover:bg-gray-300 rounded-full cursor-pointer "
-                          width={0}
-                          height={0}
-                          onClick={() => toggleClick(item.id)}
-                        />
+                <div className="flex justify-center items-center space-x-1 md:space-x-3 ">
+                  <div className="font-medium text-xs md:text-sm text-nowrap">{item.duration}</div>
+
+                  <div className="relative mt-2" ref={domNode}>
+                    <button
+                      className="bg-gray-100 rounded-full m-auto p-2 cursor-pointer hover:bg-muted"
+                      onClick={() => clicked === item.id ? setClicked(0) : setClicked(item.id)}
+                    >
+                      
+                      {clicked !== item.id ? (
+                        <EllipsisVerticalIcon width={0} height={0} className="w-4 h-4 sm:w-6 sm:h-6" />
                       ) : (
-                        <EllipsisVerticalIcon
-                          className="p-1 sm:p-2 w-8 md:w-10 h-8 md:h-10 bg-muted hover:bg-gray-300 rounded-full cursor-pointer "
-                          width={0}
-                          height={0}
-                          onClick={() => toggleClick(item.id)}
-                        />
+                        <XMarkIcon width={0} height={0} className="w-4 h-4 md:w-6 md:h-6"/>
                       )}
-                    </Dropdown.Trigger>
-                    <Dropdown.Menu className="">
-                      <Dropdown.Item className="space-x-1">
-                        <TrashIcon width={20} height={20} />
-                        <div className=" text-foreground font-poppins">
-                          Delete notification
-                        </div>
-                      </Dropdown.Item>
-                      <div className="border-t-2 border-muted w-full my-2 px-4"></div>
-                      <Dropdown.Item className="space-x-1">
-                        <BookmarkIcon width={20} height={20} />
-                        <span className="text-foreground font-poppins">
-                          Book mark
-                        </span>
-                      </Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
+
+                      {
+                        clicked === item.id ? (<ThreeDotCard/>) : (<></>)
+                      }
+                    </button>
+                  </div>
                 </div>
               </div>
               <div className="border-t-2 border-muted mt-4"></div>

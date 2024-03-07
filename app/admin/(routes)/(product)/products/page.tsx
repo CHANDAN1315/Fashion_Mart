@@ -1,15 +1,7 @@
 "use client";
 
-import { useState, useMemo, useRef } from "react";
-import {
-  Checkbox,
-  Avatar,
-  Text,
-  Dropdown,
-  Button,
-  Input,
-  ActionIcon,
-} from "rizzui";
+import { useState, useMemo, useEffect, useRef } from "react";
+import { Checkbox, Avatar, Text, Button, Input, Dropdown } from "rizzui";
 import Table from "@/components/Table";
 import HeaderCell from "@/components/TableHeader";
 import { products } from "@/data/products";
@@ -23,183 +15,190 @@ import {
   TrashIcon,
   BookmarkIcon,
 } from "@heroicons/react/24/outline";
-import Image from "next/image";
 import PaginationComponent from "@/components/PaginationComponent";
 import DropdownComponent from "@/components/DropdownComponent";
+
+
+function getStatusBadge(status: string) {
+  switch (status.toLowerCase()) {
+    case "published":
+      return (
+        <div className="flex items-center text-sm text-nowrap text-green-default gap-1 font-medium">
+          <div className="w-1 h-1 bg-green-default rounded-full"></div>
+          {status}
+        </div>
+      );
+    case "pending":
+      return (
+        <div className="flex items-center text-sm text-nowrap text-orange-default gap-1 font-medium">
+          <div className="w-1 h-1 bg-orange-default rounded-full"></div>
+          {status}
+        </div>
+      );
+    case "draft":
+      return (
+        <div className="flex items-center text-sm text-nowrap text-red-default gap-1 font-medium">
+          <div className="w-1 h-1 bg-red-default rounded-full"></div>
+          {status}
+        </div>
+      );
+    default:
+      return null;
+  }
+}
+
+const getColumns = (order: string, column: string, clicked:boolean, setClicked: any) => [
+  {
+    title: <></>,
+    dataIndex: "checked",
+    key: "checked",
+    width: 50,
+    render: () => (
+      <div className="inline-flex cursor-pointer">
+        <Checkbox variant="flat" className="accent-black dark:accent-white" />
+      </div>
+    ),
+  },
+
+  {
+    title: <HeaderCell title="Products" />,
+    dataIndex: "product",
+    key: "product",
+    width: 350,
+    render: (product: any) => (
+      <div className="flex items-center">
+        <Avatar
+          src={product.image}
+          name={`image`}
+          rounded="md"
+          className="hidden md:block"
+        />
+        <div className="ml-3 rtl:ml-0 rtl:mr-3">
+          <Text className="mb-0.5 text-sm text-nowrap font-roboto font-bold">
+            {product.title}
+          </Text>
+          <Text as="p" className="text-sm text-nowrap text-foreground">
+            {product.category}
+          </Text>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: <HeaderCell title="SKU" />,
+    dataIndex: "sku",
+    key: "sku",
+    width: 250,
+    render: (sku: string) => (
+      <div className="text-sm text-nowrap text-foreground">{sku}</div>
+    ),
+  },
+  {
+    title: <HeaderCell title="Price" />,
+    dataIndex: "price",
+    key: "price",
+    width: 200,
+    render: (price: string) => (
+      <div className="text-sm text-nowrap text-foreground">{price}</div>
+    ),
+  },
+  {
+    title: <HeaderCell title="Stock" />,
+    dataIndex: "inStock",
+    key: "inStock",
+    width: 200,
+    render: (active: boolean) => {
+      if (active) {
+        return (
+          <div className="text-sm text-nowrap text-green-default font-medium">
+            In Stock
+          </div>
+        );
+      } else {
+        return (
+          <div className="text-sm text-nowrap text-red-default font-medium">
+            Out of Stock
+          </div>
+        );
+      }
+    },
+  },
+
+  {
+    title: <HeaderCell title="Status" />,
+    dataIndex: "status",
+    key: "status",
+    width: 250,
+    render: (status: string) => getStatusBadge(status),
+  },
+  {
+    title: <HeaderCell title="Actions" />,
+    render: () => (
+      <Dropdown placement="bottom-end">
+        <Dropdown.Trigger>
+          <button className=" flex justify-center items-center w-10 h-10 bg-gray-100 hover:bg-muted dark:bg-[#333333] rounded-full">
+            <EllipsisVerticalIcon width={25} height={25} />
+          </button>
+        </Dropdown.Trigger>
+        <Dropdown.Menu className="mr-12 ">
+          <div className="flex justify-center items-center">
+            <TrashIcon width={25} height={25} />
+            <Dropdown.Item>Delete Notification</Dropdown.Item>
+          </div>
+          <div className="border-t-2 border-muted my-2"></div>
+          <div className="flex justify-center items-center">
+            <BookmarkIcon width={25} height={25} />
+            <Dropdown.Item>Bookmark</Dropdown.Item>
+          </div>
+        </Dropdown.Menu>
+      </Dropdown>
+    ),
+  },
+];
 
 const Products = () => {
   const [order, setOrder] = useState<string>("desc");
   const [column, setColumn] = useState<string>("");
   const [data, setData] = useState<typeof products>(products);
-  const [clicked, setClicked] = useState<number>(0);
+  const [clicked, setClicked] = useState<boolean>(false);
   const dataLength = 50;
   const currentPage = 1;
   const optionData = [1, 2, 3, 4, 5];
   const domNode = useRef(null);
 
-  const toggleClick = (id: number) => {
-    console.log(id)
-    if (clicked === id) setClicked(0);
-    else setClicked(id);
-    console.log(clicked)
-  };
+  // const toggleClick = (id: number) => {
+  //   console.log(id);
+  //   if (clicked === id) setClicked(0);
+  //   else setClicked(id);
+  //   console.log(clicked);
+  // };
 
-  function getStatusBadge(status: string) {
-    switch (status.toLowerCase()) {
-      case "published":
-        return (
-          <div className="flex items-center text-sm text-nowrap text-green-default gap-1 font-medium">
-            <div className="w-1 h-1 bg-green-default rounded-full"></div>
-            {status}
-          </div>
-        );
-      case "pending":
-        return (
-          <div className="flex items-center text-sm text-nowrap text-orange-default gap-1 font-medium">
-            <div className="w-1 h-1 bg-orange-default rounded-full"></div>
-            {status}
-          </div>
-        );
-      case "draft":
-        return (
-          <div className="flex items-center text-sm text-nowrap text-red-default gap-1 font-medium">
-            <div className="w-1 h-1 bg-red-default rounded-full"></div>
-            {status}
-          </div>
-        );
-      default:
-        return null;
-    }
-  }
+  // useEffect(() => {
+  //   let handler = (event: any) => {
+  //     if (!domNode.current?.contains(event.target)) {
+  //       setClicked(0);
+  //     }
+  //   };
+  //   document.addEventListener("click", handler);
 
-  const getColumns = (order: string, column: string) => [
-    {
-      title: <></>,
-      dataIndex: "checked",
-      key: "checked",
-      width: 50,
-      render: () => (
-        <div className="inline-flex cursor-pointer">
-          <Checkbox variant="flat" className="accent-black dark:accent-white" />
-        </div>
-      ),
-    },
+  //   return () => {
+  //     document.removeEventListener("click", handler);
+  //   };
+  // });
 
-    {
-      title: <HeaderCell title="Products" />,
-      dataIndex: "product",
-      key: "product",
-      width: 350,
-      render: (product: any) => (
-        <div className="flex items-center">
-          <Avatar
-            src={product.image}
-            name={`image`}
-            rounded="md"
-            className="hidden md:block"
-          />
-          <div className="ml-3 rtl:ml-0 rtl:mr-3">
-            <Text className="mb-0.5 text-sm text-nowrap font-roboto font-bold">
-              {product.title}
-            </Text>
-            <Text as="p" className="text-sm text-nowrap text-foreground">
-              {product.category}
-            </Text>
-          </div>
-        </div>
-      ),
-    },
-    {
-      title: <HeaderCell title="SKU" />,
-      dataIndex: "sku",
-      key: "sku",
-      width: 250,
-      render: (sku: string) => (
-        <div className="text-sm text-nowrap text-foreground">{sku}</div>
-      ),
-    },
-    {
-      title: <HeaderCell title="Price" />,
-      dataIndex: "price",
-      key: "price",
-      width: 200,
-      render: (price: string) => (
-        <div className="text-sm text-nowrap text-foreground">{price}</div>
-      ),
-    },
-    {
-      title: <HeaderCell title="Stock" />,
-      dataIndex: "inStock",
-      key: "inStock",
-      width: 200,
-      render: (active: boolean) => {
-        if (active) {
-          return (
-            <div className="text-sm text-nowrap text-green-default font-medium">
-              In Stock
-            </div>
-          );
-        } else {
-          return (
-            <div className="text-sm text-nowrap text-red-default font-medium">
-              Out of Stock
-            </div>
-          );
-        }
-      },
-    },
-
-    {
-      title: <HeaderCell title="Status" />,
-      dataIndex: "status",
-      key: "status",
-      width: 250,
-      render: (status: string) => getStatusBadge(status),
-    },
-    {
-      title: <HeaderCell title="Actions" />,
-      dataIndex: "id",
-      key:"id",
-      render: (id : number) => (
-          <Dropdown placement="bottom-end">
-            <Dropdown.Trigger ref={domNode}>
-              {clicked === id ? (
-                <XMarkIcon
-                  className="p-1 sm:p-2 w-8 md:w-10 h-8 md:h-10 bg-muted hover:bg-gray-300 rounded-full cursor-pointer "
-                  width={0}
-                  height={0}
-                  onClick={() => toggleClick(id)}
-                />
-              ) : (
-                <EllipsisVerticalIcon
-                  className="p-1 sm:p-2 w-8 md:w-10 h-8 md:h-10 bg-muted hover:bg-gray-300 rounded-full cursor-pointer "
-                  width={0}
-                  height={0}
-                  onClick={() => toggleClick(id)}
-                />
-              )}
-            </Dropdown.Trigger>
-            <Dropdown.Menu className="">
-              <Dropdown.Item className="space-x-1">
-                <TrashIcon width={20} height={20} />
-                <div className=" text-foreground font-poppins">
-                  Delete notification
-                </div>
-              </Dropdown.Item>
-              <div className="border-t-2 border-muted w-full my-2 px-4"></div>
-              <Dropdown.Item className="space-x-1">
-                <BookmarkIcon width={20} height={20} />
-                <span className="text-foreground font-poppins">Book mark</span>
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-
-      ),
-    },
-  ];
+  // const onCellClick = (value: string) => ({
+  //   onClick: () => {
+  //     setColumn(value);
+  //     // let num = data.filter((e) => e());
+  //     // setClicked(num)
+  //     // console.log(num)
+  //     // setClicked(data.id);
+  //     // console.log(num, value, clicked);
+  //   },
+  // });
 
   const columns: any = useMemo(
-    () => getColumns(order, column),
+    () => getColumns(order, column, clicked, setClicked),
     [order, column]
   );
 

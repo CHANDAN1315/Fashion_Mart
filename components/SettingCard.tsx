@@ -12,12 +12,12 @@ const SettingCard = () => {
   return (
     <div className="mx-4 h-[55vh] w-[90%] overflow-y-scroll no-scrollbar ">
       <div className="mt-6">
-        <div className="font-rufina mb-4 text-xl font-bold">
+        <div className="font-rufina mb-2 text-xl font-bold">
           Profile & Security
         </div>
 
-        <div className="space-y-6">
-          <div className="flex item-center justify-between ">
+        <div className="space-y-2">
+          <div className="flex item-center justify-between hover:bg-muted py-2 px-1 cursor-pointer rounded-md ">
             <div className="flex items-center  space-x-4">
               <PencilIcon width={25} height={25} />
               <div className="text-foreground  font-roboto">Edit Profile</div>
@@ -25,7 +25,7 @@ const SettingCard = () => {
             <ChevronRightIcon width={25} height={25} />
           </div>
 
-          <div className="flex item-center justify-between ">
+          <div className="flex item-center justify-between hover:bg-muted py-2 px-1 cursor-pointer rounded-md ">
             <div className="flex items-center  space-x-4">
               <LockClosedIcon width={25} height={25} />
               <div className="text-foreground font-roboto">Reset Password</div>
@@ -33,7 +33,7 @@ const SettingCard = () => {
             <ChevronRightIcon width={25} height={25} />
           </div>
 
-          <div className="flex item-center justify-between ">
+          <div className="flex item-center justify-between hover:bg-muted py-2 px-1 cursor-pointer rounded-md">
             <div className="flex items-center  space-x-4">
               <LanguageIcon width={25} height={25} />
               <div className="text-foreground font-roboto">Languages</div>
@@ -43,7 +43,7 @@ const SettingCard = () => {
         </div>
       </div>
 
-      <div className="mt-6">
+      <div className="mt-4">
         <div className="font-rufina mb-2 text-xl font-bold">
           Notifications & Theming
         </div>
@@ -51,10 +51,10 @@ const SettingCard = () => {
         <div className="space-y-2">
           <div className="flex item-center justify-between ">
             <div className="flex items-center  space-x-4">
-              <BellAlertIcon width={25} height={25} />
+              <BellAlertIcon width={25} height={25}  />
               <div className="text-foreground  font-roboto">Notifications</div>
             </div>
-            <Switch variant="flat" size="lg" />
+            <Switch variant="flat" size="lg" className="text-blue-500"/>
           </div>
 
           <div className="flex item-center justify-between ">

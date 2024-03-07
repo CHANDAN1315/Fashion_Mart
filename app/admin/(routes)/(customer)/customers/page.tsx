@@ -1,7 +1,15 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Checkbox, Avatar, Text, Dropdown, Button, Input, ActionIcon } from "rizzui";
+import {
+  Checkbox,
+  Avatar,
+  Text,
+  Dropdown,
+  Button,
+  Input,
+  ActionIcon,
+} from "rizzui";
 import Table from "@/components/Table";
 import HeaderCell from "@/components/TableHeader";
 import { customers } from "@/data/customers";
@@ -12,6 +20,8 @@ import {
   FunnelIcon,
   PlusIcon,
   EllipsisVerticalIcon,
+  TrashIcon,
+  BookmarkIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import PaginationComponent from "@/components/PaginationComponent";
@@ -74,7 +84,13 @@ const Customers = () => {
       width: 300,
       render: (customer: any) => (
         <div className="flex items-center">
-          <Avatar src={customer.image} name={`image`} rounded="md" color="primary" className="bg-muted" />
+          <Avatar
+            src={customer.image}
+            name={`image`}
+            rounded="md"
+            color="primary"
+            className="bg-muted"
+          />
           <div className="ml-3 rtl:ml-0 rtl:mr-3">
             <Text className="mb-0.5 !text-sm font-roboto font-bold">
               {customer.name}
@@ -92,7 +108,9 @@ const Customers = () => {
       dataIndex: "items_purchase",
       key: "items_purchase",
       width: 250,
-      render: (items_purchase: number) => <div className="text-foreground pl-12">{items_purchase}</div>,
+      render: (items_purchase: number) => (
+        <div className="text-foreground pl-12">{items_purchase}</div>
+      ),
     },
 
     {
@@ -100,7 +118,9 @@ const Customers = () => {
       dataIndex: "total_spent",
       key: "total_spent",
       width: 250,
-      render: (total_spent: number) => <div className="text-foreground pl-4">{total_spent}</div>,
+      render: (total_spent: number) => (
+        <div className="text-foreground pl-4">{total_spent}</div>
+      ),
     },
     {
       title: <HeaderCell title="status" />,
@@ -114,15 +134,20 @@ const Customers = () => {
       render: () => (
         <Dropdown placement="bottom-end">
           <Dropdown.Trigger>
-            <ActionIcon variant="outline" rounded="full" className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
-              <div className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
-                <EllipsisVerticalIcon width={25} height={25} />
-              </div>
-            </ActionIcon>
+            <button className=" flex justify-center items-center w-10 h-10 bg-gray-100 hover:bg-muted dark:bg-[#333333] rounded-full">
+              <EllipsisVerticalIcon width={25} height={25} />
+            </button>
           </Dropdown.Trigger>
-          <Dropdown.Menu className="">
-            <Dropdown.Item>Edit</Dropdown.Item>
-            <Dropdown.Item>Delete</Dropdown.Item>
+          <Dropdown.Menu className="mr-12 ">
+            <div className="flex justify-center items-center">
+              <TrashIcon width={25} height={25} />
+              <Dropdown.Item>Delete Notification</Dropdown.Item>
+            </div>
+            <div className="border-t-2 border-muted my-2"></div>
+            <div className="flex justify-center items-center">
+              <BookmarkIcon width={25} height={25} />
+              <Dropdown.Item>Bookmark</Dropdown.Item>
+            </div>
           </Dropdown.Menu>
         </Dropdown>
       ),

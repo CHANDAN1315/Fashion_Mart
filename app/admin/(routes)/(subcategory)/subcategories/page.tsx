@@ -22,6 +22,8 @@ import {
   FunnelIcon,
   PlusIcon,
   EllipsisVerticalIcon,
+  TrashIcon,
+  BookmarkIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import PaginationComponent from "@/components/PaginationComponent";
@@ -145,19 +147,20 @@ const Subcategories = () => {
       render: () => (
         <Dropdown placement="bottom-end">
           <Dropdown.Trigger>
-            <ActionIcon
-              variant="outline"
-              rounded="full"
-              className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full"
-            >
-              <div className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
-                <EllipsisVerticalIcon width={25} height={25} />
-              </div>
-            </ActionIcon>
+            <button className=" flex justify-center items-center w-10 h-10 bg-gray-100 hover:bg-muted dark:bg-[#333333] rounded-full">
+              <EllipsisVerticalIcon width={25} height={25} />
+            </button>
           </Dropdown.Trigger>
-          <Dropdown.Menu className="">
-            <Dropdown.Item>Edit</Dropdown.Item>
-            <Dropdown.Item>Delete</Dropdown.Item>
+          <Dropdown.Menu className="mr-12 ">
+            <div className="flex justify-center items-center">
+              <TrashIcon width={25} height={25} />
+              <Dropdown.Item>Delete Notification</Dropdown.Item>
+            </div>
+            <div className="border-t-2 border-muted my-2"></div>
+            <div className="flex justify-center items-center">
+              <BookmarkIcon width={25} height={25} />
+              <Dropdown.Item>Bookmark</Dropdown.Item>
+            </div>
           </Dropdown.Menu>
         </Dropdown>
       ),

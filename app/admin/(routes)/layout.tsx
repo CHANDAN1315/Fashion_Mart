@@ -25,26 +25,17 @@ export default function ProductsLayout({
   }, []);
 
   
-
-
-
   return (
     <main className="relative flex">
       <motion.section
-        animate={{
-          width: isOpen && greaterThan ? "0px" : "",
-          opacity: isOpen && greaterThan ? "0" : "1",
-          transition: {
-            duration: 0.5,
-          },
-        }}
-        className="fixed md:static z-10 w-[60%] md:w-[35%] lg:w-[20%] bg-white border-muted border-x-2 "
+
+        className={`${isOpen && greaterThan ? "w-20 opacity-0": "w-[60%] md:w-[35%] lg:w-[20%]"}  fixed md:static z-10  bg-white border-muted border-x-2 duration-500 `}
       >
         {/* greater > 700px   block    g - 0 1 -> false*/}
         {/* Global sidebar */}
         <Sidebar />
       </motion.section>
-      <section className="w-full lg:w-[80%] h-full md:mx-4 my-2">
+      <section className="w-full px-4 lg:w-[80%] h-full md:mx-4 my-2">
         {children}
       </section>
     </main>

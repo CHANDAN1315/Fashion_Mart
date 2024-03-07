@@ -1,9 +1,10 @@
 import {
-    ArrowRightStartOnRectangleIcon,
+  ArrowRightStartOnRectangleIcon,
   ChevronRightIcon,
   CogIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 
 const ProfileCard = () => {
@@ -54,11 +55,36 @@ const ProfileCard = () => {
       </div>
 
       <div className="border-t-2 border-muted dark:border-[#333333] my-4"></div>
-
-        <div className="flex items-center space-x-4 mb-4" >
-            <ArrowRightStartOnRectangleIcon width={25} height={25} color="red"/>
-            <div className="font-roboto text-red-500">Log out account</div>
+      <AnimatePresence>
+        <div className="flex space-x-4 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: 15 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 15 }}
+            transition={{
+              duration: 0.5,
+            }}
+            className=""
+          >
+            <ArrowRightStartOnRectangleIcon
+              width={25}
+              height={25}
+              color="red"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -15 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -15 }}
+            transition={{
+              duration: 0.5,
+            }}
+            className="font-roboto text-red-500"
+          >
+            Log out account
+          </motion.div>
         </div>
+      </AnimatePresence>
     </div>
   );
 };

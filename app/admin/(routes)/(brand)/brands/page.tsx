@@ -1,7 +1,15 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Checkbox, Avatar, Text, Dropdown, Button, Input, ActionIcon } from "rizzui";
+import {
+  Checkbox,
+  Avatar,
+  Text,
+  Dropdown,
+  Button,
+  Input,
+  ActionIcon,
+} from "rizzui";
 import Table from "@/components/Table";
 import HeaderCell from "@/components/TableHeader";
 import brands from "@/data/brands";
@@ -11,6 +19,8 @@ import {
   FunnelIcon,
   PlusIcon,
   EllipsisVerticalIcon,
+  TrashIcon,
+  BookmarkIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import PaginationComponent from "@/components/PaginationComponent";
@@ -73,7 +83,13 @@ const Brands = () => {
       width: 250,
       render: (brand_image: string) => (
         <div className="flex items-center">
-          <Avatar src={brand_image} name={`brand_image`} rounded="md" color="primary" className="bg-gray-100"/>
+          <Avatar
+            src={brand_image}
+            name={`brand_image`}
+            rounded="md"
+            color="primary"
+            className="bg-gray-100"
+          />
         </div>
       ),
     },
@@ -82,7 +98,9 @@ const Brands = () => {
       dataIndex: "brand_name",
       key: "brand_name",
       width: 250,
-      render: (brand_name: string) => <div className="text-foreground font-medium">{brand_name}</div>,
+      render: (brand_name: string) => (
+        <div className="text-foreground font-medium">{brand_name}</div>
+      ),
     },
 
     {
@@ -90,7 +108,9 @@ const Brands = () => {
       dataIndex: "products",
       key: "products",
       width: 250,
-      render: (products: number) => <div className="text-foreground pl-6">{products}</div>,
+      render: (products: number) => (
+        <div className="text-foreground pl-6">{products}</div>
+      ),
     },
 
     {
@@ -105,15 +125,20 @@ const Brands = () => {
       render: () => (
         <Dropdown placement="bottom-end">
           <Dropdown.Trigger>
-            <ActionIcon variant="outline" rounded="full" className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
-              <div className=" flex justify-center items-center w-10 h-10 bg-muted dark:bg-[#333333]  rounded-full">
-                <EllipsisVerticalIcon width={25} height={25} />
-              </div>
-            </ActionIcon>
+            <button className=" flex justify-center items-center w-10 h-10 bg-gray-100 hover:bg-muted dark:bg-[#333333] rounded-full">
+              <EllipsisVerticalIcon width={25} height={25} />
+            </button>
           </Dropdown.Trigger>
-          <Dropdown.Menu className="">
-            <Dropdown.Item>Edit</Dropdown.Item>
-            <Dropdown.Item>Delete</Dropdown.Item>
+          <Dropdown.Menu className="mr-12 ">
+            <div className="flex justify-center items-center">
+              <TrashIcon width={25} height={25} />
+              <Dropdown.Item>Delete Notification</Dropdown.Item>
+            </div>
+            <div className="border-t-2 border-muted my-2"></div>
+            <div className="flex justify-center items-center">
+              <BookmarkIcon width={25} height={25} />
+              <Dropdown.Item>Bookmark</Dropdown.Item>
+            </div>
           </Dropdown.Menu>
         </Dropdown>
       ),
