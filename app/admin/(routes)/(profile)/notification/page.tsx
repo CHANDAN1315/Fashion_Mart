@@ -29,7 +29,7 @@ const Notification = () => {
   });
 
   return (
-    <div className="h-full md:h-[100vh] w-full md:w-[70vw] lg:w-[78vw] overflow-y-scroll no-scrollbar scroll">
+    <div className="h-full md:h-[100vh] w-full md:w-[70vw] lg:w-[75vw] overflow-y-scroll no-scrollbar scroll">
       {/* User Profile */}
       <div className="md:flex items-center  gap-4 py-2 px-4">
         <Image

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ArchiveBoxIcon,
   BellAlertIcon,
@@ -7,7 +9,8 @@ import {
   UsersIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 import { Button } from "rizzui";
 
 const Buttongroup = () => {
@@ -18,7 +21,7 @@ const Buttongroup = () => {
           <Button
             variant="solid"
             rounded="pill"
-            className=" text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
+            className={`$ text-black hover:text-white border-2  border-muted dark:border-[#333333] gap-2 py-4 px-6`}
           >
             <UsersIcon width={20} />
             <span className="w-20">My Profile</span>
@@ -28,7 +31,7 @@ const Buttongroup = () => {
           <Button
             variant="solid"
             rounded="pill"
-            className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
+            className={` text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6`}
           >
             <PencilIcon width={20} />
             <div className="w-20">Edit profile</div>
@@ -44,33 +47,37 @@ const Buttongroup = () => {
             <div className="w-20">Notification</div>
           </Button>
         </Link>
+        <Link href="http://localhost:3000/admin/my_order">
+          <Button
+            variant="solid"
+            rounded="pill"
+            className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
+          >
+            <ArchiveBoxIcon width={20} />
+            <span className="w-20">My orders</span>
+          </Button>
+        </Link>
+        <Link href="http://localhost:3000/admin/address">
+          <Button
+            variant="solid"
+            rounded="pill"
+            className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
+          >
+            <MapPinIcon width={20} />
+            <span className="w-20">Addresses</span>
+          </Button>
+        </Link>
 
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <ArchiveBoxIcon width={20} />
-          <span className="w-20">My orders</span>
-        </Button>
-
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <MapPinIcon width={20} />
-          <span className="w-20">Addresses</span>
-        </Button>
-
-        <Button
-          variant="solid"
-          rounded="pill"
-          className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
-        >
-          <CogIcon width={20} />
-          <span className="w-20">Settings</span>
-        </Button>
+        <Link href="http://localhost:3000/admin/setting">
+          <Button
+            variant="solid"
+            rounded="pill"
+            className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
+          >
+            <CogIcon width={20} />
+            <span className="w-20">Settings</span>
+          </Button>
+        </Link>
       </div>
     </div>
   );

@@ -23,7 +23,7 @@ const Orderdetails = () => {
           </div>
         </div>
 
-        <button className="w-full md:w-[15%]  py-2 px-4 mt-4 flex justify-center items-center bg-black text-white hover:bg-white hover:text-black dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white space-x-2 hover:border-muted border-2 rounded-full">
+        <button className="w-full md:w-[25%] lg:w-[18%]  py-2 px-4 mt-4 flex justify-center items-center bg-black text-white hover:bg-white hover:text-black dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white space-x-2 hover:border-muted border-2 rounded-full">
           <PencilIcon strokeWidth="2" className="h-4 w-4 space-x-4" />
           <span className="text-nowrap">Edit Order</span>
         </button>
@@ -40,35 +40,56 @@ const Orderdetails = () => {
         </div>
       </div>
 
-      <div className="md:flex">
+      <div className="lg:flex">
         {/* Order summary section*/}
-        <div className="w-full md:w-[67%] ">
-          <div className="flex justify-between  item-center py-2 px-4 bg-gray-100 dark:bg-[#18181B] rounded-lg">
-            <div className="text-foreground font-medium">Products</div>
-            <div className="flex gap-24 item-center">
-              <span className="text-foreground font-medium">Product price</span>
-              <span className="text-foreground font-medium">Quantity</span>
-            </div>
-            <div className="text-foreground font-medium ">Total price</div>
-          </div>
+        <div className="w-full lg:w-[67%] ">
+          <div className="overflow-x-scroll  no-scrollbar">
+            <table className="w-full table-auto md:table-fixed text-sm text-gray-500   ">
+              <thead className="text-xs text-gray-700 uppercase bg-gray-100 rounded-lg">
+                <tr className="">
+                  <th scope="col" className="text-start py-2 px-2  ">
+                    Products
+                  </th>
+                  <th scope="col" className="text-center text-nowrap px-2" >
+                    Product price
+                  </th>
+                  <th scope="col" className="text-center  px-2">
+                    Quantity
+                  </th>
+                  <th scope="col" className="text-center text-nowrap px-2">
+                    Total price
+                  </th>
+                </tr>
+              </thead>
 
-          {/* Product details */}
-          <div className="flex justify-between item-center py-4 px-4 border-b-2 border-muted text-foreground">
-            <div className="flex items-center gap-4">
-              <Image
-                src="/assets/images/products/8.png"
-                alt="product_img"
-                width={50}
-                height={50}
-                className="hidden md:block"
-              />
-              <div className="text-black dark:text-white font-medium">
-                Denim Jacket
-              </div>
-            </div>
-            <div className="mr-10 pt-4 ml-4 md:ml-0">$295.00</div>
-            <div className="mr-18 md:mr-28 pt-4">3</div>
-            <div className="pt-4 ml-10 md:ml-0">$885.00</div>
+              <tbody className="">
+                <tr className=" text-center gap-2 mt-6 items-center bg-white border-b-2">
+                  <td className="p-4 border-gray-700 flex justify-start gap-4">
+                    <Image
+                      src="/assets/images/products/8.png"
+                      alt="product_img"
+                      width={50}
+                      height={50}
+                      className="hidden md:block"
+                    />
+
+                    <div className="text-black dark:text-white font-medium text-nowrap my-auto">
+                      Denim Jacket
+                    </div>
+                  </td>
+                  <td>
+                    <span className="">$295.00</span>
+                  </td>
+                  <td>
+                    <span className="">3</span>
+                  </td>
+
+                  <td>
+                    <div className="">$885.00</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
           {/* Order summary */}
@@ -123,13 +144,13 @@ const Orderdetails = () => {
         </div>
 
         {/* order status division */}
-        <div className="w-full md:w-[33%] md:ml-4 ">
+        <div className="w-full lg:w-[33%] lg:ml-4 ">
           <div className="text-black dark:text-white font-rufina font-bold text-[1.3rem] pb-2">
             Order status
           </div>
           <Stepper
             direction="vertical"
-            className="border-2 border-muted  p-4 rounded-lg "
+            className="border-2 border-muted max-md:w-full max-lg:w-[70%]  p-4 rounded-lg "
           >
             <Stepper.Step title="Order pending" />
             <Stepper.Step title="Order processing" />

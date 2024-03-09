@@ -10,7 +10,7 @@ import Buttongroup from "@/components/Buttongroup";
 const MyProfile = () => {
   return (
     
-    <div className="h-full md:h-[100vh] w-full md:w-[70vw] lg:w-[78vw] overflow-y-scroll no-scrollbar ">
+    <div className="h-full md:h-[100vh] w-full md:w-[70vw] lg:w-[75vw] overflow-y-scroll no-scrollbar ">
       {/* User Profile */}
 
       <div className="md:flex items-center  gap-4 py-2 px-4">
