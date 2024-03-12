@@ -54,7 +54,7 @@ export const sidebarData = [
     links: [
       {
         text: "Coupons",
-        url: "http://localhost:3000/admin/order_details",
+        url: "http://localhost:3000/admin/coupons",
       },
     ],
   },

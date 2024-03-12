@@ -5,8 +5,12 @@ import Buttongroup from "@/components/Buttongroup";
 import Image from "next/image";
 import { addressData } from "@/data/address";
 import { Checkbox } from "rizzui";
+import { useState } from "react";
 
 const Address = () => {
+  const [checked, setChecked] = useState<number>(0);
+
+  
   return (
     <div className="h-full md:h-[100vh] w-full md:w-[70vw] lg:w-[75vw] overflow-y-scroll no-scrollbar scroll">
       {/* User Profile */}
@@ -40,7 +44,14 @@ const Address = () => {
       <div className="m-4 h-[55vh] md:h-[70vh] lg:h-[80vh] overflow-y-scroll no-scrollbar">
         {addressData &&
           addressData.map((item) => (
-            <div className="flex justify-between items-start border-2 border-muted p-4 my-4  rounded-lg " key={item.id}>
+            <div
+              className="flex justify-between items-start border-2 border-muted p-4 my-4  rounded-lg "
+              key={item.id}
+              onClick={() => {
+                if (checked === item.id) return setChecked(0);
+                setChecked(item.id);
+              }}
+            >
               <div className="space-y-2">
                 <div className="flex space-x-2">
                   <item.icon width={25} height={25} />
@@ -51,7 +62,15 @@ const Address = () => {
                   Phone no: <span className="font-normal">{item.phone}</span>
                 </div>
               </div>
-              <Checkbox className="accent-white" rounded="full"/>
+              <Checkbox
+                className="accent-black"
+                // onClick={() => {
+                //   if (checked !== item.id)  setChecked(0);
+                //   setChecked(item.id);
+                // }}
+                checked={item.id === checked}
+                rounded="full"
+              />
             </div>
           ))}
       </div>

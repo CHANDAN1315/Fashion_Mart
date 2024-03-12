@@ -68,7 +68,7 @@ const Buttongroup = () => {
           </Button>
         </Link>
 
-        <Link href="http://localhost:3000/admin/setting">
+        <Link href="http://localhost:3000/admin/settings">
           <Button
             variant="solid"
             rounded="pill"

@@ -51,8 +51,9 @@ const MyOrder = () => {
                   width={100}
                   height={100}
 
+
                 />
-                <div className="ml-4">
+                <div className="ml-4 flex flex-col max-sm:items-center">
                   <div className="font-medium font-poppins text-nowrap">
                     {item.name}
                   </div>

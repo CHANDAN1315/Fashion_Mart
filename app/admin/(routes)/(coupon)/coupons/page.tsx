@@ -237,7 +237,7 @@ const Categories = () => {
         <div className="m-auto px-4 pt-6 pb-8">
           <div className="mb-4 flex  justify-between">
             <div className="space-y-2">
-              <div className="text-black font-rufina font-bold text-3xl">
+              <div className="text-black font-rufina font-bold text-2xl md:text-3xl">
                 Add new Coupon.
               </div>
               <div className="text-sm text-foreground">

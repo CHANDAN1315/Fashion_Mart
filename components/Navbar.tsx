@@ -12,6 +12,7 @@ import SettingCard from "./SettingCard";
 import ProfileCard from "./ProfileCard";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 
+
 const Navbar = () => {
   const controls = useAnimationControls();
 
@@ -87,13 +88,14 @@ const Navbar = () => {
             onClick={() => {
               if (buttonIsOpen === 1) return setButtonIsOpen(0);
               setButtonIsOpen(1);
-              controls.start("move");
             }}
           >
+            <div className="absolute p-[5px] right-32 top-4 bg-red-500 rounded-full"></div>
             <BellAlertIcon width={25} height={25} id="notification" />
           </button>
           <AnimatePresence>
             {buttonIsOpen === 1 && (
+              
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -101,9 +103,7 @@ const Navbar = () => {
                 transition={{
                   duration: 0.5,
                 }}
-                className={`${
-                  buttonIsOpen === 1 && greaterThan ? "block" : "hidden"
-                } bg-white absolute top-[70px] right-[160px] w-[25%] max-md:w-[60%] max-md:right-[50px]  shadow-xl rounded-lg `}
+                className={` bg-white absolute top-[70px] right-[160px] w-[30%] max-md:w-[40%] max-sm:w-[80%] max-md:right-[40px]  shadow-xl rounded-lg `}
               >
                 <NotificationCard />
               </motion.div>
@@ -117,7 +117,6 @@ const Navbar = () => {
             onClick={() => {
               if (buttonIsOpen === 2) return setButtonIsOpen(0);
               setButtonIsOpen(2);
-              controls.start("move");
             }}
           >
             <CogIcon width={25} height={25} id="Setting" />
@@ -131,9 +130,7 @@ const Navbar = () => {
                 transition={{
                   duration: 0.5,
                 }}
-                className={`${
-                  buttonIsOpen === 2 && greaterThan ? "block" : "hidden"
-                } bg-white absolute top-[70px] right-[90px] w-[25%] max-md:w-[60%] max-md:right-[50px]  shadow-xl rounded-lg `}
+                className={` bg-white absolute top-[70px] right-[90px] w-[30%] max-md:w-[40%] max-sm:w-[80%] max-md:right-[40px]  shadow-xl rounded-lg `}
               >
                 <SettingCard />
               </motion.div>
@@ -147,7 +144,6 @@ const Navbar = () => {
             onClick={() => {
               if (buttonIsOpen === 3) return setButtonIsOpen(0);
               setButtonIsOpen(3);
-              controls.start("move");
             }}
           >
             <Image
@@ -167,9 +163,7 @@ const Navbar = () => {
                 transition={{
                   duration: 0.5,
                 }}
-                className={`${
-                  buttonIsOpen === 3 && greaterThan ? "block" : "hidden"
-                } bg-white absolute top-[70px] right-[40px] w-[25%] max-md:w-[60%] max-md:right-[50px]  shadow-xl rounded-lg `}
+                className={` bg-white absolute top-[70px] right-[40px] w-[30%] max-md:w-[40%] max-sm:w-[80%] max-md:right-[40px]  shadow-xl rounded-lg `}
               >
                 <ProfileCard />
               </motion.div>

@@ -6,6 +6,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const ProfileCard = () => {
   return (
@@ -36,16 +37,18 @@ const ProfileCard = () => {
 
       <div className="border-t-2 border-muted dark:border-[#333333] my-4"></div>
 
-      <div className="space-y-6">
-        <div className="flex item-center justify-between ">
+      <div className="space-y-2">
+        <Link href="http://localhost:3000/admin/my_profile">
+        <div className="flex item-center justify-between hover:bg-muted py-2 px-1 cursor-pointer rounded-md ">
           <div className="flex items-center  space-x-4">
             <UserIcon width={25} height={25} />
             <div className="text-foreground  font-roboto">My Profile</div>
           </div>
           <ChevronRightIcon width={25} height={25} />
         </div>
+        </Link>
 
-        <div className="flex item-center justify-between ">
+        <div className="flex item-center justify-between hover:bg-muted py-2 px-1 cursor-pointer rounded-md ">
           <div className="flex items-center  space-x-4">
             <CogIcon width={25} height={25} />
             <div className="text-foreground font-roboto">Account Settings</div>
@@ -54,9 +57,9 @@ const ProfileCard = () => {
         </div>
       </div>
 
-      <div className="border-t-2 border-muted dark:border-[#333333] my-4"></div>
+      <div className="border-t-2 border-muted dark:border-[#333333] mt-3 mb-1"></div>
       <AnimatePresence>
-        <div className="flex space-x-4 items-center">
+        <div className="flex space-x-4 items-center cursor-pointer hover:bg-red-200 rounded-md py-2 px-1">
           <motion.div
             initial={{ opacity: 0, x: 15 }}
             animate={{ opacity: 1, x: 0 }}

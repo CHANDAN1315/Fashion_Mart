@@ -16,8 +16,8 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        rufina: "var(--font-rufina)",
-        roboto: "var(--font-roboto)",
+        rufina: ["Rufina", "san-serif"],
+        roboto: ["Roboto", "sans-serif"],
       },
       colors: {
         /*
@@ -96,5 +96,5 @@ module.exports = {
     smbtn: "14px",
     xsbtn: "12px",
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
