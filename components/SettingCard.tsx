@@ -7,9 +7,9 @@ import {
   SunIcon,
 } from "@heroicons/react/24/outline";
 // import { Switch } from "rizzui";
-import { Switch } from "./Switch";
 import { useState } from "react";
 import Link from "next/link";
+import Switch from "./Switch";
 
 const SettingCard = () => {
   const [enabled, setEnabled] = useState<boolean>(false);
@@ -64,7 +64,7 @@ const SettingCard = () => {
             </div>
             <Switch
               checked={enabled}
-              onChange={(e) => setEnabled(e.target.checked)}
+              onChange={(e: any) => setEnabled(e.target.checked)}
             />
           </div>
 
@@ -75,7 +75,7 @@ const SettingCard = () => {
             </div>
             <Switch
               checked={theme}
-              onChange={(e) => setTheme(e.target.checked)}
+              onChange={(e: any) => setTheme(e.target.checked)}
             />
           </div>
         </div>
