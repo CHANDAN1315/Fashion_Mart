@@ -18,12 +18,12 @@ const Navbar = () => {
 
   const { toggleFunction } = useContext(SidebarContext);
 
-  let notificationRef = useRef<HTMLInputElement>(null);
-  let settingRef = useRef<HTMLInputElement>(null);
-  let profileRef = useRef<HTMLInputElement>(null);
-  const [buttonIsOpen, setButtonIsOpen] = useState<number>(0);
+  let notificationRef = useRef(null);
+  let settingRef = useRef(null);
+  let profileRef = useRef(null);
+  const [buttonIsOpen, setButtonIsOpen] = useState(0);
 
-  const [greaterThan, setGreaterThan] = useState<boolean>(false);
+  const [greaterThan, setGreaterThan] = useState(false);
 
   useEffect(() => {
     function handleResize() {

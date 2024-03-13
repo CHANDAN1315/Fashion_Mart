@@ -55,7 +55,7 @@ const getColumns = (order: string, column: string, clicked:boolean, setClicked: 
     width: 50,
     render: () => (
       <div className="inline-flex cursor-pointer">
-        <Checkbox variant="flat" className="accent-black dark:accent-white" />
+        <Checkbox variant="flat" className=" dark:accent-white" />
       </div>
     ),
   },

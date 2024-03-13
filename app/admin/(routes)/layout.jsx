@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function ProductsLayout({children}) {
   const { isOpen } = useContext(SidebarContext);
 
-  const [greaterThan, setGreaterThan] = useState<boolean>(false);
+  const [greaterThan, setGreaterThan] = useState(false);
 
   useEffect(() => {
     function handleResize() {
