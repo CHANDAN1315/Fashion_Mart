@@ -3,12 +3,9 @@ import Sidebar from "@/components/Sidebar";
 import { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "@/functions/context";
 import { motion } from "framer-motion";
-export default function ProductsLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ProductsLayout({children}) {
   const { isOpen } = useContext(SidebarContext);
+
   const [greaterThan, setGreaterThan] = useState<boolean>(false);
 
   useEffect(() => {

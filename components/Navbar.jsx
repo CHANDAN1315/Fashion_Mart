@@ -18,9 +18,9 @@ const Navbar = () => {
 
   const { toggleFunction } = useContext(SidebarContext);
 
-  let notificationRef = useRef(null);
-  let settingRef = useRef(null);
-  let profileRef = useRef(null);
+  let notificationRef = useRef<HTMLInputElement>(null);
+  let settingRef = useRef<HTMLInputElement>(null);
+  let profileRef = useRef<HTMLInputElement>(null);
   const [buttonIsOpen, setButtonIsOpen] = useState<number>(0);
 
   const [greaterThan, setGreaterThan] = useState<boolean>(false);
@@ -39,7 +39,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    let handler = (e: any) => {
+    let handler = (e) => {
       if (
         !notificationRef.current?.contains(e.target) &&
         !settingRef.current?.contains(e.target) &&
