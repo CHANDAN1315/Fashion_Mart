@@ -164,38 +164,7 @@ const Products = () => {
   const dataLength = 50;
   const currentPage = 1;
   const optionData = [1, 2, 3, 4, 5];
-  const domNode = useRef(null);
 
-  // const toggleClick = (id: number) => {
-  //   console.log(id);
-  //   if (clicked === id) setClicked(0);
-  //   else setClicked(id);
-  //   console.log(clicked);
-  // };
-
-  // useEffect(() => {
-  //   let handler = (event: any) => {
-  //     if (!domNode.current?.contains(event.target)) {
-  //       setClicked(0);
-  //     }
-  //   };
-  //   document.addEventListener("click", handler);
-
-  //   return () => {
-  //     document.removeEventListener("click", handler);
-  //   };
-  // });
-
-  // const onCellClick = (value: string) => ({
-  //   onClick: () => {
-  //     setColumn(value);
-  //     // let num = data.filter((e) => e());
-  //     // setClicked(num)
-  //     // console.log(num)
-  //     // setClicked(data.id);
-  //     // console.log(num, value, clicked);
-  //   },
-  // });
 
   const columns: any = useMemo(
     () => getColumns(order, column, clicked, setClicked),

@@ -13,7 +13,7 @@ import ThreeDotCard from "@/components/ThreeDotCard";
 const Notification = () => {
   const [clicked, setClicked] = useState<Number>(0);
 
-  const domNode = useRef(null);
+  const domNode = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     let handler = (event: any) => { 

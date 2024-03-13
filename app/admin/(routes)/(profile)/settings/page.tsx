@@ -11,10 +11,8 @@ import {
   PencilIcon,
   SunIcon,
 } from "@heroicons/react/24/outline";
-import { addressData } from "@/data/address";
-// import { Switch } from "rizzui";
-import { Switch } from "@/components/Switch"; 
 import { useState } from "react";
+import Switch from "@/components/Switch";
 
 const Settings = () => {
 
@@ -101,7 +99,7 @@ const Settings = () => {
             </div>
             <Switch
               checked={enabled}
-              onChange={(e) => setEnabled(e.target.checked)}
+              onChange={(e:any) => setEnabled(e.target.checked)}
             />
           </div>
           <div className="flex  justify-between items-center  hover:bg-muted  my-2 p-1 rounded-xl cursor-pointer">
@@ -113,7 +111,7 @@ const Settings = () => {
             </div>
             <Switch
               checked={theme}
-              onChange={(e) => setTheme(e.target.checked)}
+              onChange={(e: any) => setTheme(e.target.checked)}
             />
           </div>
         </div>
