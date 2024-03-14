@@ -47,7 +47,7 @@ function getStatusBadge(status: string) {
   }
 }
 
-const getColumns = (order: string, column: string, clicked:boolean, setClicked: any) => [
+const getColumns = (order: string, column: string) => [
   {
     title: <></>,
     dataIndex: "checked",
@@ -167,7 +167,7 @@ const Products = () => {
 
 
   const columns: any = useMemo(
-    () => getColumns(order, column, clicked, setClicked),
+    () => getColumns(order, column),
     [order, column]
   );
 
