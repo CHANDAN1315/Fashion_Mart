@@ -11,28 +11,28 @@ export const sidebarData = [
     links: [
       {
         text: "Product",
-        url: "http://localhost:3000/admin/products",
+        url: "/admin/products",
       },
 
       {
         text: "Catagories",
-        url: "http://localhost:3000/admin/categories",
+        url: "/admin/categories",
       },
       {
         text: "subcatagories",
-        url: "http://localhost:3000/admin/subcategories",
+        url: "/admin/subcategories",
       },
       {
         text: "Orders",
-        url: "http://localhost:3000/admin/orders",
+        url: "/admin/orders",
       },
       {
         text: "Order details",
-        url: "http://localhost:3000/admin/order_details",
+        url: "/admin/order_details",
       },
       {
         text: "Brands",
-        url: "http://localhost:3000/admin/brands",
+        url: "/admin/brands",
       },
     ],
   },
@@ -43,7 +43,7 @@ export const sidebarData = [
     links: [
       {
         text: "Customers",
-        url: "http://localhost:3000/admin/customers",
+        url: "/admin/customers",
       },
     ],
   },
@@ -54,7 +54,7 @@ export const sidebarData = [
     links: [
       {
         text: "Coupons",
-        url: "http://localhost:3000/admin/coupons",
+        url: "/admin/coupons",
       },
     ],
   },
