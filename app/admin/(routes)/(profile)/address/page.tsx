@@ -23,7 +23,7 @@ const Address = () => {
         />
         <div className="flex flex-col justify-center">
           <div className="flex gap-2">
-            <div className="font-rufina font-bold text-black dark:text-white text-[28px]">
+            <div className="font-rufina font-bold text-black text-[28px]">
               Steven Rogers
             </div>
             <Image
@@ -39,7 +39,7 @@ const Address = () => {
       </div>
       {/* Buttons section */}
       <Buttongroup />
-      <div className="border-t-2 border-muted dark:border-[#333333] mt-4"></div>
+      <div className="border-t-2 border-muted  mt-4"></div>
 
       <div className="m-4 h-[55vh] md:h-[70vh] lg:h-[80vh] overflow-y-scroll no-scrollbar">
         {addressData &&

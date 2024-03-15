@@ -9,7 +9,7 @@ const ThreeDotCard = () => {
         <div className="text-foreground font-roboto">Delete notification</div>
       </div>
 
-      <div className="border-t-2 border-muted dark:border-[#333333] my-4"></div>
+      <div className="border-t-2 border-muted my-4"></div>
       <div className="flex space-x-2">
         <BookmarkIcon  width={25} height={25} />
         <div className="text-foreground font-roboto">Book mark</div>

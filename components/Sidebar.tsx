@@ -38,7 +38,7 @@ const Sidebar = () => {
     <div className="h-[100vh] ">
       <div className="flex space-x-2 items-center py-2 pl-3  ">
         <HomeIcon width={24} height={24} />
-        <span className="text-black font-roboto dark:text-white">
+        <span className="text-black font-roboto ">
           Dashboard
         </span>
       </div>
@@ -88,7 +88,7 @@ const Sidebar = () => {
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className="flex items-center space-x-2 ml-8 mt-1 text-foreground hover:cursor-pointer hover:text-black dark:hover:text-white hover:font-medium"
+                        className="flex items-center space-x-2 ml-8 mt-1 text-foreground hover:cursor-pointer hover:text-black  hover:font-medium"
                       >
                         <div className="w-1 h-1 bg-foreground rounded-full mx-2 my-3  "></div>
                         <Link href={link.url}>{link.text}</Link>

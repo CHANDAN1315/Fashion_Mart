@@ -21,7 +21,7 @@ const Buttongroup = () => {
           <Button
             variant="solid"
             rounded="pill"
-            className={`$ text-black hover:text-white border-2  border-muted dark:border-[#333333] gap-2 py-4 px-6`}
+            className={`$ text-black hover:text-white border-2  border-muted  gap-2 py-4 px-6`}
           >
             <UsersIcon width={20} />
             <span className="w-20">My Profile</span>
@@ -31,7 +31,7 @@ const Buttongroup = () => {
           <Button
             variant="solid"
             rounded="pill"
-            className={` text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6`}
+            className={` text-black hover:text-white border-2   border-muted  gap-2 py-4 px-6`}
           >
             <PencilIcon width={20} />
             <div className="w-20">Edit profile</div>
@@ -41,7 +41,7 @@ const Buttongroup = () => {
           <Button
             variant="solid"
             rounded="pill"
-            className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
+            className="text-black hover:text-white border-2  border-muted  gap-2 py-4 px-6"
           >
             <BellAlertIcon width={20} />
             <div className="w-20">Notification</div>
@@ -51,7 +51,7 @@ const Buttongroup = () => {
           <Button
             variant="solid"
             rounded="pill"
-            className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
+            className="text-black hover:text-white border-2  border-muted  gap-2 py-4 px-6"
           >
             <ArchiveBoxIcon width={20} />
             <span className="w-20">My orders</span>
@@ -61,7 +61,7 @@ const Buttongroup = () => {
           <Button
             variant="solid"
             rounded="pill"
-            className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
+            className="text-black hover:text-white border-2  border-muted gap-2 py-4 px-6"
           >
             <MapPinIcon width={20} />
             <span className="w-20">Addresses</span>
@@ -72,7 +72,7 @@ const Buttongroup = () => {
           <Button
             variant="solid"
             rounded="pill"
-            className="text-black hover:text-white border-2 dark:text-white dark:hover:bg-white dark:hover:text-black border-muted dark:border-[#333333] gap-2 py-4 px-6"
+            className="text-black hover:text-white border-2  border-muted  gap-2 py-4 px-6"
           >
             <CogIcon width={20} />
             <span className="w-20">Settings</span>

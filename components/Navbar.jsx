@@ -56,7 +56,7 @@ const Navbar = () => {
   });
 
   return (
-    <section className="sticky top-0 z-50 bg-white w-full flex justify-between border-muted dark:border-[#333333] border-2  py-1">
+    <section className="sticky top-0 z-50 bg-white w-full flex justify-between border-muted  border-b-2  py-1">
       <div className="flex items-center space-x-1 ">
         <Image
           src="/assets/logo/Subtract.svg"
@@ -65,7 +65,7 @@ const Navbar = () => {
           height={24}
           className="m-4"
         />
-        <div className="text-black dark:text-white text-lg font-medium max-md:hidden">
+        <div className="text-black text-lg font-medium max-md:hidden">
           Fashion Mart
         </div>
         <Bars3Icon

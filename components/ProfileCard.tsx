@@ -20,7 +20,7 @@ const ProfileCard = () => {
         />
         <div className="flex flex-col justify-center">
           <div className="flex gap-2">
-            <div className="font-rufina font-bold text-black dark:text-white text-[28px]">
+            <div className="font-rufina font-bold text-black  text-[28px]">
               Steven Rogers
             </div>
             <Image
@@ -35,7 +35,7 @@ const ProfileCard = () => {
         </div>
       </div>
 
-      <div className="border-t-2 border-muted dark:border-[#333333] my-4"></div>
+      <div className="border-t-2 border-muted  my-4"></div>
 
       <div className="space-y-2">
         <Link href="http://localhost:3000/admin/my_profile">
@@ -57,7 +57,7 @@ const ProfileCard = () => {
         </div>
       </div>
 
-      <div className="border-t-2 border-muted dark:border-[#333333] mt-3 mb-1"></div>
+      <div className="border-t-2 border-muted  mt-3 mb-1"></div>
       <AnimatePresence>
         <div className="flex space-x-4 items-center cursor-pointer hover:bg-red-200 rounded-md py-2 px-1">
           <motion.div

@@ -72,7 +72,7 @@ const Customers = () => {
       width: 50,
       render: () => (
         <div className="inline-flex cursor-pointer">
-          <Checkbox variant="flat" className="accent-black dark:accent-white" />
+          <Checkbox />
         </div>
       ),
     },
@@ -134,7 +134,7 @@ const Customers = () => {
       render: () => (
         <Dropdown placement="bottom-end">
           <Dropdown.Trigger>
-            <button className=" flex justify-center items-center w-10 h-10 bg-gray-100 hover:bg-muted dark:bg-[#333333] rounded-full">
+            <button className=" flex justify-center items-center w-10 h-10 bg-gray-100 hover:bg-muted  rounded-full">
               <EllipsisVerticalIcon width={25} height={25} />
             </button>
           </Dropdown.Trigger>
@@ -162,7 +162,7 @@ const Customers = () => {
   return (
     <>
       {/* Heding section */}
-      <div className=" text-black dark:text-white font-rufina font-bold text-[24px]">
+      <div className=" text-black  font-rufina font-bold text-[24px]">
         Customers
       </div>
       <div className="flex items-center space-x-2 text-foreground">
@@ -184,7 +184,7 @@ const Customers = () => {
         <div className="flex flex-col md:flex md:flex-row md:space-x-4 space-y-2 md:space-y-0">
           <Button
             rounded="pill"
-            className="bg-white text-black border-gray-200 hover:bg-black hover:text-white dark:bg-black dark:text-white dark:border-[#333333] dark:hover:bg-white dark:hover:text-black space-x-2"
+            className="bg-white text-black border-gray-200 hover:bg-black hover:text-white  space-x-2"
           >
             <ArrowUpTrayIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
             <span>Export</span>
@@ -192,7 +192,7 @@ const Customers = () => {
 
           <Button
             rounded="pill"
-            className="bg-white text-black border-gray-200 hover:bg-black hover:text-white dark:bg-black dark:text-white dark:border-[#333333] dark:hover:bg-white dark:hover:text-black space-x-2"
+            className="bg-white text-black border-gray-200 hover:bg-black hover:text-white  space-x-2"
           >
             <FunnelIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
             <span>Filter</span>
@@ -201,7 +201,7 @@ const Customers = () => {
           <Button
             rounded="pill"
             color="primary"
-            className="bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted dark:bg-white dark:text-black dark:border-[#333333] dark:hover:bg-black dark:hover:text-white"
+            className="bg-black text-white hover:bg-white hover:text-black space-x-2 hover:border-muted  "
           >
             <PlusIcon strokeWidth="2" className="h-4 w-4 space-x-4 " />
             <span>Add new customer</span>
