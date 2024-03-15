@@ -17,7 +17,7 @@ const Buttongroup = () => {
   return (
     <div className="">
       <div className="flex overflow-scroll no-scrollbar space-x-6 mt-4 px-4 ">
-        <Link href="http://localhost:3000/admin/my_profile">
+        <Link href="/admin/my_profile">
           <Button
             variant="solid"
             rounded="pill"
@@ -27,7 +27,7 @@ const Buttongroup = () => {
             <span className="w-20">My Profile</span>
           </Button>
         </Link>
-        <Link href="http://localhost:3000/admin/edit_profile">
+        <Link href="/admin/edit_profile">
           <Button
             variant="solid"
             rounded="pill"
@@ -37,7 +37,7 @@ const Buttongroup = () => {
             <div className="w-20">Edit profile</div>
           </Button>
         </Link>
-        <Link href="http://localhost:3000/admin/notification">
+        <Link href="/admin/notification">
           <Button
             variant="solid"
             rounded="pill"
@@ -47,7 +47,7 @@ const Buttongroup = () => {
             <div className="w-20">Notification</div>
           </Button>
         </Link>
-        <Link href="http://localhost:3000/admin/my_order">
+        <Link href="/admin/my_order">
           <Button
             variant="solid"
             rounded="pill"
@@ -57,7 +57,7 @@ const Buttongroup = () => {
             <span className="w-20">My orders</span>
           </Button>
         </Link>
-        <Link href="http://localhost:3000/admin/address">
+        <Link href="/admin/address">
           <Button
             variant="solid"
             rounded="pill"
@@ -68,7 +68,7 @@ const Buttongroup = () => {
           </Button>
         </Link>
 
-        <Link href="http://localhost:3000/admin/settings">
+        <Link href="/admin/settings">
           <Button
             variant="solid"
             rounded="pill"

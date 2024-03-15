@@ -23,7 +23,7 @@ const SettingCard = () => {
         </div>
 
         <div className="space-y-2">
-          <Link href="http://localhost:3000/admin/edit_profile">
+          <Link href="/admin/edit_profile">
             <div className="flex item-center justify-between hover:bg-muted py-2 px-1 cursor-pointer rounded-md ">
               <div className="flex items-center  space-x-4">
                 <PencilIcon width={25} height={25} />
